@@ -1,244 +1,257 @@
-# DevAtlas
+<div align="center">
+  <h1>DevAtlas</h1>
+  <p>An interactive developer knowledge graph — explore skills, learning paths, projects, roles, and companies visually.</p>
 
-> An interactive developer knowledge graph — explore skills, learning paths, projects, roles and companies visually.
-
-[![CI](https://github.com/your-username/dev-atlas/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/dev-atlas/actions/workflows/ci.yml)
-
----
-
-## Overview
-
-DevAtlas visualises developer knowledge as an interactive graph instead of traditional cards or dashboards. Users can explore:
-
-- **Skill prerequisites** — what you need to know first
-- **Learning paths** — where a skill leads
-- **Projects** — real-world applications of the skill
-- **Learning resources** — curated links and courses
-- **Career roles** — jobs that require the skill
-- **Hiring companies** — who is looking for this skill
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+    <img src="https://img.shields.io/badge/Ant_Design-0170FE?style=for-the-badge&logo=antdesign&logoColor=white" alt="Ant Design" />
+    <img src="https://img.shields.io/badge/React_Flow-FF0072?style=for-the-badge&logo=react&logoColor=white" alt="React Flow" />
+    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License" />
+  </p>
+</div>
 
 ---
 
-## Architecture
+## 🚀 Live Demo
+
+**Frontend:** [https://dev-atlas-theta.vercel.app/](https://dev-atlas-theta.vercel.app/)
+
+---
+
+## 🎬 Demo
+
+<p align="center">
+    <img src="./docs/demo.gif" alt="DevAtlas Demo" width="100%">
+</p>
+
+---
+
+## 📖 About
+
+**DevAtlas** visualizes developer knowledge as an interactive graph instead of traditional cards or dashboards.
+
+**The Problem:** Traditional learning roadmaps and skill directories are linear, overwhelming, and lack context. They tell you *what* to learn, but rarely *how* skills connect to real-world applications, roles, and hiring companies.
+
+**The Solution:** Visual learning. By leveraging an interactive knowledge graph, DevAtlas allows developers to see the big picture. You can instantly understand prerequisites, discover related technologies, and navigate a web of knowledge intuitively.
+
+**Who is it for?**
+- **Self-taught developers** looking for a clear path forward.
+- **Experienced engineers** exploring new tech stacks.
+- **Educators and mentors** guiding students through complex ecosystems.
+
+---
+
+## ✨ Features
+
+- **🔍 Smart Skill Search:** Quickly find technologies, frameworks, and tools using an auto-complete search with highlighted matching.
+- **🕸️ Interactive Knowledge Graph:** Explore visually. Zoom, pan, and click on nodes to uncover relationships between different skills and roles.
+- **🗺️ Learning Roadmap:** See exactly what you need to know first (Prerequisites) and where a skill leads (Next Skills).
+- **💼 Career Opportunities:** Discover which roles demand a specific skill and which top companies are hiring for those roles.
+- **🔗 Related Skills:** Expand your horizon by discovering complementary tools and technologies.
+- **📚 Learning Resources:** Get curated links to courses, documentation, and external guides.
+- **🏗️ Projects:** View real-world applications and projects that you can build to master a skill.
+- **🏢 Companies:** See a list of companies utilizing the tech stack.
+- **🎨 Theme Support:** Instantly switch between multiple beautifully crafted themes (Dark, Light, Dracula, Forest, Ocean, Sunset) using a robust Design Token system.
+- **📱 Responsive Design:** A flawless experience across desktop, tablet, and mobile devices.
+
+---
+
+## 📸 Screenshots
+
+### Home
 
 ```
-Browser
-  │
-  ├── Vercel (Frontend — React + Vite)
-  │     └── /skill/:name  →  React Router (client-side)
-  │
-  └── Railway (Backend — Node.js + Express)
-        └── /api/*  →  Neo4j Aura (Graph Database)
+(Add Screenshot)
 ```
 
+### Skill Page
+
 ```
-GitHub
-  └── push to main
-        ├── GitHub Actions CI  (lint + build)
-        ├── Vercel             (auto-deploy frontend)
-        └── Railway            (auto-deploy backend)
+(Add Screenshot)
+```
+
+### Knowledge Graph
+
+```
+(Add Screenshot)
 ```
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer     | Technology                        |
 |-----------|-----------------------------------|
-| Frontend  | React 19, Vite 8                  |
-| UI        | Ant Design 6, CSS Modules         |
-| Graph     | React Flow (@xyflow/react)        |
-| Data      | React Query (@tanstack/react-query)|
-| HTTP      | Axios                             |
-| Backend   | Node.js, Express 5                |
-| Database  | Neo4j Aura (graph database)       |
-| CI/CD     | GitHub Actions                    |
-| Hosting   | Vercel (frontend), Railway (backend)|
+| **Frontend**  | React, TypeScript, Vite           |
+| **UI**        | Ant Design, CSS Variables         |
+| **Graph**     | React Flow (@xyflow/react)        |
+| **State/Data**| React Query, Zustand              |
+| **Routing**   | React Router                      |
+| **Backend**   | Node.js, Express                  |
+| **Database**  | Neo4j Aura (Graph Database)       |
+| **Hosting**   | Vercel (Frontend), Railway (Backend)|
 
 ---
 
-## Folder Structure
+## 📂 Project Structure
 
-```
+```text
 dev-atlas/
-├── .github/
-│   └── workflows/
-│       └── ci.yml              # GitHub Actions CI pipeline
-│
 ├── frontend/
-│   ├── public/
-│   │   ├── favicon.svg
-│   │   └── manifest.json       # PWA manifest
 │   ├── src/
-│   │   ├── api/                # Axios client
-│   │   ├── components/
-│   │   │   ├── cards/          # SkillCard, SectionCard, etc.
-│   │   │   ├── common/         # Header, SearchBar, SkillFilters
-│   │   │   └── graph/          # GraphCanvas, custom nodes
-│   │   ├── hooks/              # React Query hooks
-│   │   ├── layouts/            # MainLayout
-│   │   ├── pages/              # Home, Skill, NotFound
-│   │   ├── routes/             # AppRoutes
-│   │   └── styles/             # Design tokens, global CSS
-│   ├── index.html
-│   ├── vercel.json             # SPA rewrite rules
-│   └── vite.config.js
+│   │   ├── components/      # Reusable UI elements (Cards, Layouts, Common)
+│   │   ├── graph/           # React Flow canvas, custom nodes, and graph logic
+│   │   ├── hooks/           # Custom React hooks (React Query, debouncing)
+│   │   ├── pages/           # Route components (Home, Skill, NotFound)
+│   │   ├── styles/          # Design tokens (themes.css), Ant Design theme config
+│   │   ├── types/           # TypeScript definitions
+│   │   ├── data/            # Static data or fallback datasets
+│   │   └── utils/           # Helper functions and formatting utilities
+│   └── vite.config.js       # Vite configuration
 │
 └── backend/
-    ├── app.js                  # Express app (CORS, routes, error handling)
-    ├── server.js               # Entry point (port binding)
-    ├── routes.js               # Route registration
-    ├── controller.js           # Request/response handlers
-    ├── services.js             # Business logic
-    ├── queries.js              # Neo4j Cypher queries
-    ├── db.js                   # Neo4j driver
-    └── seed.js                 # Database seed script
+    ├── app.js               # Express application setup
+    ├── server.js            # Entry point for the server
+    ├── routes.js            # API route definitions
+    ├── controller.js        # Request and response handlers
+    ├── services.js          # Core business logic
+    ├── queries.js           # Neo4j Cypher queries
+    └── db.js                # Database connection and driver
 ```
 
 ---
 
-## Installation
+## ⚙️ Installation
 
 ### Prerequisites
 
-- Node.js 20+
+- **Node.js** 20+
 - A [Neo4j Aura](https://neo4j.com/cloud/aura/) free instance (or local Neo4j)
 
-### Clone
+### Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/dev-atlas.git
 cd dev-atlas
 ```
 
-### Backend
+### Backend Setup
 
 ```bash
 cd backend
 cp .env.example .env
-# Fill in your Neo4j credentials in .env
+```
+*Fill in your Neo4j credentials in the `.env` file.*
+
+```bash
 npm install
 npm run seed   # populate the database
 npm run dev
 ```
 
-### Frontend
+### Frontend Setup
 
 ```bash
-cd frontend
-# .env.development is already configured for localhost
+cd ../frontend
 npm install
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+The application will be running locally at `http://localhost:5173`.
 
 ---
 
-## Environment Variables
+## 🏗️ Build
 
-### Backend (`backend/.env`)
-
-| Variable       | Description                                      | Example                                      |
-|----------------|--------------------------------------------------|----------------------------------------------|
-| `PORT`         | Server port                                      | `3001`                                       |
-| `NODE_ENV`     | Environment (`development` / `production`)       | `production`                                 |
-| `NEO4J_URI`    | Neo4j Aura connection URI                        | `neo4j+s://xxxxxxxx.databases.neo4j.io`      |
-| `NEO4J_USERNAME` | Neo4j username                                 | `neo4j`                                      |
-| `NEO4J_PASSWORD` | Neo4j password                                 | `your-secure-password`                       |
-| `FRONTEND_URL` | Deployed frontend URL (for CORS)                 | `https://dev-atlas.vercel.app`               |
-
-### Frontend (Vercel Environment Variables)
-
-| Variable            | Description                  | Example                                         |
-|---------------------|------------------------------|-------------------------------------------------|
-| `VITE_API_BASE_URL` | Backend API base URL         | `https://dev-atlas-api.up.railway.app/api`      |
-
----
-
-## Deployment Guide
-
-### 1. Neo4j Aura (Database)
-
-1. Go to [console.neo4j.io](https://console.neo4j.io) and create a **free** AuraDB instance.
-2. Note the **Connection URI**, **Username**, and **Password**.
-3. Run the seed script locally pointing at your Aura instance:
-   ```bash
-   cd backend
-   # Set NEO4J_* vars in .env, then:
-   npm run seed
-   ```
-
-### 2. Railway (Backend)
-
-1. Go to [railway.app](https://railway.app) and create a new project.
-2. Connect your **GitHub repository**.
-3. Set the **Root Directory** to `backend`.
-4. Add the following **Environment Variables** in Railway:
-   - `NEO4J_URI`
-   - `NEO4J_USERNAME`
-   - `NEO4J_PASSWORD`
-   - `NODE_ENV=production`
-   - `FRONTEND_URL=https://your-app.vercel.app`  ← set this after Vercel deploy
-5. Railway will use `npm start` automatically.
-
-### 3. Vercel (Frontend)
-
-1. Go to [vercel.com](https://vercel.com) and import your GitHub repository.
-2. Set the **Root Directory** to `frontend`.
-3. Add the following **Environment Variable**:
-   - `VITE_API_BASE_URL=https://your-backend.up.railway.app/api`
-4. Deploy. Vercel reads `vercel.json` automatically for SPA routing.
-
-### 4. Final Step
-
-After both services are deployed:
-1. Copy the Vercel URL (e.g. `https://dev-atlas.vercel.app`).
-2. Set `FRONTEND_URL` in Railway to this URL.
-3. Redeploy the Railway service.
-
----
-
-## Running Locally
+To create a production-ready build for the frontend:
 
 ```bash
-# Terminal 1 — Backend
-cd backend && npm run dev
-
-# Terminal 2 — Frontend
-cd frontend && npm run dev
+cd frontend
+npm run build
 ```
 
-Visit `http://localhost:5173`.
+To preview the production build locally:
+
+```bash
+npm run preview
+```
 
 ---
 
-## CI/CD
+## ☁️ Deployment
 
-Every push to `main` triggers the GitHub Actions pipeline (`.github/workflows/ci.yml`):
+DevAtlas is designed for automated deployments. 
 
-1. **Frontend job**: installs dependencies → ESLint → Vite production build
-2. **Backend job**: installs dependencies → lint → server boot verification
+- **Frontend:** Hosted on [Vercel](https://vercel.com).
+- **Backend:** Hosted on [Railway](https://railway.app).
 
-If either job fails, the workflow fails and Vercel/Railway deployments are blocked (configure branch protection rules on GitHub to enforce this).
+Every push to the `main` branch automatically triggers the GitHub Actions CI pipeline, which runs linting and build checks. Upon passing, Vercel and Railway will automatically deploy the latest production updates.
 
----
+### Environment Variables
 
-## Future Improvements
+**Backend (`backend/.env`)**
+- `PORT` (e.g. `3001`)
+- `NODE_ENV` (e.g. `production`)
+- `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`
+- `FRONTEND_URL` (e.g. `https://dev-atlas-theta.vercel.app`)
 
-- [ ] Authentication (save bookmarks, learning paths)
-- [ ] AI Skill Recommendations
-- [ ] Resume Skill Analyser
-- [ ] Interview Preparation Graph
-- [ ] Personalised Roadmaps
-- [ ] Company Logos
-- [ ] Animated Graph Edges
-- [ ] Skill Search Highlighting in Graph
-- [ ] Expand / Collapse Nodes
-- [ ] Career Path Visualisation
+**Frontend (Vercel Variables)**
+- `VITE_API_BASE_URL` (e.g. `https://your-backend.up.railway.app/api`)
 
 ---
 
-## License
+## 🎯 How to Use
 
-[MIT](LICENSE)
+1. **Open the website** and you'll be greeted by the DevAtlas home page.
+2. **Search for a technology** (e.g., React, Node.js) using the Smart Skill Search in the top navigation.
+3. **Select a result** from the auto-complete dropdown.
+4. **Explore the knowledge graph** on the left panel to see how the skill connects to other domains.
+5. **View prerequisites** to know what you should learn before diving in.
+6. **View next skills** to plan your future learning roadmap.
+7. **Explore career opportunities** to see what roles this skill unlocks.
+8. **Open learning resources** to access curated tutorials, documentation, and courses.
+9. **Visit company websites** to explore real employers looking for these skills.
+
+---
+
+## 🔮 Future Improvements
+
+- [ ] Backend integration
+- [ ] Authentication
+- [ ] User Profiles
+- [ ] Bookmark Skills
+- [ ] Learning Progress Tracking
+- [ ] AI Recommendations
+- [ ] Community Contributions
+- [ ] More Technologies
+- [ ] Search Improvements
+- [ ] Filters
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! To contribute to DevAtlas:
+
+1. **Fork** the repository.
+2. **Create a branch**: `git checkout -b feature/your-feature-name`
+3. **Commit your changes**: `git commit -m 'Add some feature'`
+4. **Push to the branch**: `git push origin feature/your-feature-name`
+5. **Open a Pull Request** and describe your changes clearly.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🧑‍💻 Author
+
+- **Name:** [Your Name]
+- **GitHub:** [@your-username](https://github.com/your-username)
+- **LinkedIn:** [Your Name](https://linkedin.com/in/your-profile)

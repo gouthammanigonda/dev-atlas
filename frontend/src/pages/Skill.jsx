@@ -1,37 +1,78 @@
 import { useParams } from "react-router-dom";
-import { Alert, Col, Row, Spin } from "antd";
+import { Breadcrumb, Button, Col, Empty, Result, Row } from "antd";
+import { HomeOutlined, ReloadOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 import { MainLayout } from "../layouts";
-import { GraphCanvas, SectionCard, SkillCard } from "../components";
+import {
+  GraphCanvas,
+  SectionCard,
+  SkillCard,
+  SkillDetailsSkeleton,
+} from "../components";
 import { useSkillGraph } from "../hooks";
 
 import styles from "./Skill.module.css";
 
 export default function Skill() {
   const { name } = useParams();
-  const { data: graph, error, isError, isLoading } = useSkillGraph(name);
+  const { data: graph, isError, isLoading, refetch } = useSkillGraph(name);
+
+  if (isLoading) {
+    return (
+      <MainLayout>
+        <SkillDetailsSkeleton />
+      </MainLayout>
+    );
+  }
+
+  if (isError) {
+    return (
+      <MainLayout>
+        <Result
+          status="error"
+          title="We couldn’t load this skill"
+          subTitle="Please check your connection and try again."
+          extra={[
+            <Button key="retry" type="primary" icon={<ReloadOutlined />} onClick={refetch}>
+              Try again
+            </Button>,
+            <Button key="home">
+              <Link to="/">Back to discovery</Link>
+            </Button>,
+          ]}
+        />
+      </MainLayout>
+    );
+  }
+
+  if (!graph?.skill) {
+    return (
+      <MainLayout>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="No information available for this skill."
+          className={styles.emptyState}
+        >
+          <Button type="primary">
+            <Link to="/">Return to Home</Link>
+          </Button>
+        </Empty>
+      </MainLayout>
+    );
+  }
 
   return (
     <MainLayout>
-      {isLoading && (
-        <div className={styles.loader}>
-          <Spin size="large" />
-        </div>
-      )}
+      <div className={styles.content}>
+        <Breadcrumb
+          className={styles.breadcrumb}
+          items={[
+            { title: <Link to="/"><HomeOutlined /> Discovery</Link> },
+            { title: graph.skill.name },
+          ]}
+        />
 
-      {isError && (
-        <div className={styles.error}>
-          <Alert
-            type="error"
-            showIcon
-            message="Skill not found"
-            description={error?.message || "We could not load this skill."}
-          />
-        </div>
-      )}
-
-      {graph && (
-        <div className={styles.content}>
           <SkillCard skill={graph.skill} />
 
           <div className={styles.graphContainer}>
@@ -46,20 +87,23 @@ export default function Skill() {
               <SectionCard title="Next Skills" items={graph.nextSkills} />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Projects" items={graph.projects} />
+              <SectionCard title="Projects" items={graph.projects} variant="project" />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Learning Resources" items={graph.resources} />
+              <SectionCard
+                title="Learning Resources"
+                items={graph.resources}
+                variant="resource"
+              />
             </Col>
             <Col xs={24} md={12}>
               <SectionCard title="Roles" items={graph.roles} />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Companies" items={graph.companies} />
+              <SectionCard title="Companies" items={graph.companies} variant="company" />
             </Col>
           </Row>
-        </div>
-      )}
+      </div>
     </MainLayout>
   );
 }

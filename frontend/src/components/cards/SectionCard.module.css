@@ -1,6 +1,13 @@
 .card {
   height: 100%;
-  border-radius: 12px;
+  overflow: hidden;
+  border-radius: var(--graph-radius);
+  transition: transform 180ms var(--graph-motion-ease), box-shadow 180ms var(--graph-motion-ease);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--graph-shadow);
 }
 
 .item {
@@ -8,9 +15,7 @@
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  width: 100%;
 }
 
 .description {
@@ -19,4 +24,15 @@
 
 .empty {
   padding: 24px 0;
+}
+
+.externalLink {
+  width: fit-content;
+  padding-inline: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
 }

@@ -47,6 +47,10 @@
   padding-inline: 0;
 }
 
+.companyName {
+  padding-inline: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;

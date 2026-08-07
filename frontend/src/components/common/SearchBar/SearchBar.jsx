@@ -5,20 +5,47 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useDebounce, useSearchSkills } from "../../../hooks";
 import styles from "./SearchBar.module.css";
 
+const highlightMatch = (text, query) => {
+  const normalizedQuery = query.trim();
+  const matchIndex = text.toLowerCase().indexOf(normalizedQuery.toLowerCase());
+
+  if (!normalizedQuery || matchIndex < 0) return text;
+
+  return (
+    <>
+      {text.slice(0, matchIndex)}
+      <mark className={styles.match}>
+        {text.slice(matchIndex, matchIndex + normalizedQuery.length)}
+      </mark>
+      {text.slice(matchIndex + normalizedQuery.length)}
+    </>
+  );
+};
+
 const SearchBar = forwardRef(
-  ({ onChange, onSkillSelect, value }, ref) => {
+  ({ filters, onChange, onSkillSelect, value }, ref) => {
     const debouncedSearch = useDebounce(value, 300);
     const { data = [], isError, isFetching } = useSearchSkills(debouncedSearch);
     const isSearchPending = Boolean(value.trim()) && value !== debouncedSearch;
     const isSearching = isSearchPending || isFetching;
 
+    const filteredSkills = useMemo(
+      () =>
+        data.filter(
+          (skill) =>
+            (!filters?.category || skill.category === filters.category) &&
+            (!filters?.difficulty || skill.difficulty === filters.difficulty),
+        ),
+      [data, filters?.category, filters?.difficulty],
+    );
+
     const options = useMemo(
       () =>
-        (isSearchPending ? [] : data).map((skill) => ({
+        (isSearchPending ? [] : filteredSkills).map((skill) => ({
           value: skill.name,
           label: (
             <div className={styles.suggestion}>
-              <strong>{skill.name}</strong>
+              <strong>{highlightMatch(skill.name, value)}</strong>
               <span className={styles.metadata}>
                 {skill.category}
                 {skill.difficulty && <Tag>{skill.difficulty}</Tag>}
@@ -26,10 +53,10 @@ const SearchBar = forwardRef(
             </div>
           ),
         })),
-      [data, isSearchPending],
+      [filteredSkills, isSearchPending, value],
     );
 
-    const exactMatch = data.find(
+    const exactMatch = filteredSkills.find(
       (skill) => skill.name.toLowerCase() === value.trim().toLowerCase(),
     );
 

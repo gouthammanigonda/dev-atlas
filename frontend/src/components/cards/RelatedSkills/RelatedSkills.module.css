@@ -6,6 +6,16 @@
   margin-bottom: 16px !important;
 }
 
+.groups {
+  display: grid;
+  gap: var(--app-space-lg);
+}
+
+.groupTitle {
+  margin-bottom: var(--app-space-sm) !important;
+  font-size: 16px !important;
+}
+
 .card {
   height: 100%;
   border: 1px solid var(--app-glass-border);

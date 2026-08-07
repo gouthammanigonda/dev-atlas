@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Empty } from "antd";
 import {
   FireOutlined,
@@ -6,11 +6,11 @@ import {
   StarOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { MainLayout } from "../layouts";
-import { DiscoverySection, Header } from "../components";
-import { useRecentSearches } from "../hooks";
+import { DiscoverySection, Header, SkillFilters } from "../components";
+import { useRecentSearches, useSkills } from "../hooks";
 
 import styles from "./Home.module.css";
 
@@ -44,8 +44,62 @@ const discoverySections = [
 
 const Home = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchValue, setSearchValue] = useState("");
   const { addRecentSearch, recentSearches } = useRecentSearches();
+  const { data: skills = [] } = useSkills();
+
+  const filters = useMemo(
+    () => ({
+      category: searchParams.get("category") || "",
+      difficulty: searchParams.get("difficulty") || "",
+    }),
+    [searchParams],
+  );
+
+  const matchesFilters = useCallback(
+    (skillName) => {
+      const skill = skills.find((candidate) => candidate.name === skillName);
+
+      if (!skill) return !filters.category && !filters.difficulty;
+
+      return (
+        (!filters.category || skill.category === filters.category) &&
+        (!filters.difficulty || skill.difficulty === filters.difficulty)
+      );
+    },
+    [filters.category, filters.difficulty, skills],
+  );
+
+  const filteredDiscoverySections = useMemo(
+    () =>
+      discoverySections.map((section) => ({
+        ...section,
+        items: section.items.filter((item) =>
+          matchesFilters(typeof item === "string" ? item : item.value),
+        ),
+      })),
+    [matchesFilters],
+  );
+
+  const filteredRecentSearches = useMemo(
+    () => recentSearches.filter(matchesFilters),
+    [matchesFilters, recentSearches],
+  );
+
+  const handleFiltersChange = useCallback(
+    (nextFilter) => {
+      const nextParams = new URLSearchParams(searchParams);
+
+      Object.entries(nextFilter).forEach(([key, value]) => {
+        if (value) nextParams.set(key, value);
+        else nextParams.delete(key);
+      });
+
+      setSearchParams(nextParams);
+    },
+    [searchParams, setSearchParams],
+  );
 
   const handleSkillSelect = useCallback(
     (skillName) => {
@@ -59,11 +113,13 @@ const Home = () => {
     <MainLayout>
       <Header
         searchValue={searchValue}
+        filters={filters}
         onSearchChange={setSearchValue}
         onSkillSelect={handleSkillSelect}
       />
 
       <div className={styles.discovery}>
+        <SkillFilters filters={filters} onChange={handleFiltersChange} />
         {!searchValue && (
           <Empty
             image={Empty.PRESENTED_IMAGE_SIMPLE}
@@ -72,21 +128,31 @@ const Home = () => {
           />
         )}
 
-        {recentSearches.length > 0 && (
+        {filteredRecentSearches.length > 0 && (
           <DiscoverySection
             title="Recent Searches"
-            items={recentSearches}
+            items={filteredRecentSearches}
             onItemClick={setSearchValue}
           />
         )}
 
-        {discoverySections.map((section) => (
-          <DiscoverySection
-            key={section.title}
-            {...section}
-            onItemClick={setSearchValue}
-          />
+        {filteredDiscoverySections.map((section) => (
+          section.items.length > 0 && (
+            <DiscoverySection
+              key={section.title}
+              {...section}
+              onItemClick={setSearchValue}
+            />
+          )
         ))}
+
+        {filteredDiscoverySections.every((section) => section.items.length === 0) && (
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="No discovery skills match these filters."
+            className={styles.emptyState}
+          />
+        )}
       </div>
     </MainLayout>
   );

@@ -1,19 +1,21 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Breadcrumb, Button, Col, Empty, Result, Row } from "antd";
+import { Breadcrumb, Button, Col, Empty, message, Result, Row } from "antd";
 import { HomeOutlined, ReloadOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import { MainLayout } from "../layouts";
 import {
   GraphCanvas,
+  CareerOpportunities,
+  LearningRoadmap,
   NodeDetailsPanel,
   RelatedSkills,
   SectionCard,
   SkillCard,
   SkillDetailsSkeleton,
 } from "../components";
-import { useSkillGraph } from "../hooks";
+import { useBookmarks, useSkillGraph } from "../hooks";
 
 import styles from "./Skill.module.css";
 
@@ -21,6 +23,7 @@ export default function Skill() {
   const navigate = useNavigate();
   const { name } = useParams();
   const { data: graph, isError, isLoading, refetch } = useSkillGraph(name);
+  const { bookmarks, toggleBookmark } = useBookmarks();
   const [displayedGraph, setDisplayedGraph] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedRole, setSelectedRole] = useState(null);
@@ -47,6 +50,15 @@ export default function Skill() {
   }, [navigate]);
 
   const graphToDisplay = graph || displayedGraph;
+
+  const handleShare = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      message.success("Skill link copied to clipboard");
+    } catch {
+      message.error("Unable to copy the skill link");
+    }
+  }, []);
 
   if (isLoading && !graphToDisplay) {
     return (
@@ -107,7 +119,12 @@ export default function Skill() {
           Back
         </Button>
 
-          <SkillCard skill={graphToDisplay.skill} />
+          <SkillCard
+            skill={graphToDisplay.skill}
+            isBookmarked={bookmarks.includes(graphToDisplay.skill.name)}
+            onToggleBookmark={() => toggleBookmark(graphToDisplay.skill.name)}
+            onShare={handleShare}
+          />
 
           <div className={styles.graphContainer}>
             <GraphCanvas
@@ -123,6 +140,23 @@ export default function Skill() {
             nextSkills={graphToDisplay.nextSkills}
             onSkillSelect={handleSkillSelect}
           />
+
+          <Row gutter={[16, 16]} className={styles.advancedGrid}>
+            <Col xs={24} lg={12}>
+              <LearningRoadmap
+                skill={graphToDisplay.skill}
+                prerequisites={graphToDisplay.prerequisites}
+                nextSkills={graphToDisplay.nextSkills}
+              />
+            </Col>
+            <Col xs={24} lg={12}>
+              <CareerOpportunities
+                skill={graphToDisplay.skill}
+                roles={graphToDisplay.roles}
+                companies={graphToDisplay.companies}
+              />
+            </Col>
+          </Row>
 
           <Row gutter={[16, 16]} className={styles.sectionGrid}>
             <Col xs={24} md={12}>

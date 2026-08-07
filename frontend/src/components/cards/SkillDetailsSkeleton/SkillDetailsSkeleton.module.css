@@ -1,0 +1,29 @@
+.content {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.summaryCard,
+.graphCard,
+.sectionCard {
+  height: 100%;
+}
+
+.graphCard {
+  min-height: 440px;
+}
+
+.tagSkeleton {
+  margin-inline-end: 8px;
+}
+
+@media (max-width: 640px) {
+  .content {
+    margin-top: 16px;
+  }
+
+  .graphCard {
+    min-height: 400px;
+  }
+}

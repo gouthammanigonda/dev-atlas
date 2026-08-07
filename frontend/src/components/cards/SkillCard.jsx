@@ -1,5 +1,9 @@
-import { Card, Typography, Tag, Space } from "antd";
-import { CodeOutlined, ClockCircleOutlined } from "@ant-design/icons";
+import { Card, Flex, Tag, Typography } from "antd";
+import {
+  CodeOutlined,
+  ClockCircleOutlined,
+  FolderOutlined,
+} from "@ant-design/icons";
 
 import styles from "./SkillCard.module.css";
 
@@ -14,25 +18,28 @@ const SkillCard = ({ skill }) => {
 
   return (
     <Card className={styles.card}>
-      <Space direction="vertical" size={16} style={{ width: "100%" }}>
-        <div>
-          <Typography.Title level={2}>{skill.name}</Typography.Title>
+      <Flex vertical gap={16}>
+        <Flex vertical gap={8}>
+          <Typography.Title level={1} className={styles.title}>
+            {skill.name}
+          </Typography.Title>
 
-          <Typography.Text type="secondary">
+          <Typography.Paragraph type="secondary" className={styles.description}>
             {skill.description}
-          </Typography.Text>
-        </div>
+          </Typography.Paragraph>
+        </Flex>
 
-        <Space wrap>
+        <Flex wrap gap="small" className={styles.metadata}>
           <Tag color={difficultyColor[skill.difficulty]}>
             {skill.difficulty}
           </Tag>
 
           <Tag icon={<ClockCircleOutlined />}>{skill.estimatedTime}</Tag>
 
-          <Tag icon={<CodeOutlined />}>{skill.category}</Tag>
-        </Space>
-      </Space>
+          <Tag icon={<FolderOutlined />}>{skill.category}</Tag>
+          <Tag icon={<CodeOutlined />}>Skill overview</Tag>
+        </Flex>
+      </Flex>
     </Card>
   );
 };

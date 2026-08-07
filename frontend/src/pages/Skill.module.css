@@ -1,19 +1,54 @@
-.loader,
-.error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 64px 0;
-}
-
 .content {
   margin-top: 32px;
+  animation: fadeIn 360ms var(--graph-motion-ease) both;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
 }
 
 .graphContainer {
   margin-top: 32px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .sectionGrid {
   margin-top: 24px;
+}
+
+.emptyState {
+  padding: 96px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    margin-top: 16px;
+  }
+
+  .graphContainer {
+    margin-inline: -16px;
+  }
+
+  .emptyState {
+    padding: 56px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    animation: none;
+  }
 }

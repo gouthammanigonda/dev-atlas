@@ -1,0 +1,17 @@
+{
+  "name": "DevAtlas",
+  "short_name": "DevAtlas",
+  "description": "Explore developer skills, learning paths, projects and career opportunities as an interactive knowledge graph.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#2f81f7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

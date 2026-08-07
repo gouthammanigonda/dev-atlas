@@ -1,29 +1,33 @@
 .section {
   margin-top: 0;
-  padding: var(--app-space-lg);
-  border: 1px solid var(--app-glass-border);
-  border-radius: var(--app-radius-card);
-  background: var(--app-surface);
-  box-shadow: var(--app-shadow-card);
+  padding: var(--card-padding);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
 }
 
 .title {
   display: flex;
-  gap: var(--app-space-xs);
-  margin-bottom: var(--app-space-lg) !important;
-  font-size: 22px !important;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-5) !important;
+  font-size: var(--font-xl) !important;
+}
+
+.title :global(.anticon) {
+  color: var(--color-primary);
 }
 
 .description {
   display: block;
   margin-top: 2px;
-  color: var(--app-text-secondary);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
 .companyLink {
   padding-inline: 0;
-  transition: color var(--app-motion-fast) var(--app-motion-ease), transform var(--app-motion-fast) var(--app-motion-ease);
+  transition: color var(--transition-fast) var(--transition-ease), transform var(--transition-fast) var(--transition-ease);
 }
 
 .companyLink:hover {
@@ -31,9 +35,9 @@
 }
 
 .section :global(.ant-timeline-item-tail) {
-  border-inline-start-color: var(--app-glass-border);
+  border-inline-start-color: var(--border-color);
 }
 
 .section :global(.ant-timeline-item) {
-  padding-bottom: var(--app-space-md);
+  padding-bottom: var(--spacing-4);
 }

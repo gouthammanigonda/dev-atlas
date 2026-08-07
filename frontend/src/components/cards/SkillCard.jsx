@@ -11,9 +11,9 @@ import {
 import styles from "./SkillCard.module.css";
 
 const difficultyColor = {
-  Easy: "green",
-  Medium: "gold",
-  Hard: "red",
+  Easy: "success",
+  Medium: "warning",
+  Hard: "error",
 };
 
 const SkillCard = ({ isBookmarked, onShare, onToggleBookmark, skill }) => {

@@ -1,0 +1,41 @@
+.selector {
+  min-width: 130px;
+}
+
+.selector :global(.ant-select-selector) {
+  background: transparent !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-secondary) !important;
+  transition:
+    border-color var(--transition-fast) var(--transition-ease),
+    color var(--transition-fast) var(--transition-ease);
+}
+
+.selector:hover :global(.ant-select-selector) {
+  border-color: var(--color-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.selector :global(.ant-select-arrow) {
+  color: var(--text-muted);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.popup :global(.ant-select-item) {
+  color: var(--text-primary);
+}
+
+.popup :global(.ant-select-item-option-selected) {
+  background: var(--bg-hover) !important;
+  color: var(--color-primary) !important;
+}
+
+.popup :global(.ant-select-item-option-active) {
+  background: var(--bg-hover) !important;
+}

@@ -2,26 +2,30 @@
   display: flex;
   width: 208px;
   gap: 10px;
-  padding: 12px;
+  padding: var(--spacing-3);
   border: 1px solid var(--graph-node-border);
-  border-radius: var(--graph-radius-sm);
+  border-radius: var(--radius-sm);
   background: var(--graph-node-surface);
-  box-shadow: var(--graph-node-shadow);
+  box-shadow: var(--shadow-sm);
   color: var(--graph-text);
   cursor: pointer;
   font: inherit;
   text-align: left;
-  transition: transform 180ms var(--graph-motion-ease), border-color 180ms var(--graph-motion-ease), box-shadow 180ms var(--graph-motion-ease), opacity 180ms var(--graph-motion-ease);
+  transition:
+    transform var(--transition-fast) var(--transition-ease),
+    border-color var(--transition-fast) var(--transition-ease),
+    box-shadow var(--transition-fast) var(--transition-ease),
+    opacity var(--transition-fast) var(--transition-ease);
 }
 
 .node:hover {
   border-color: var(--graph-node-hover);
   transform: scale(1.03);
-  box-shadow: var(--graph-shadow);
+  box-shadow: var(--shadow-md);
 }
 
 .node:focus-visible {
-  outline: 2px solid var(--graph-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
@@ -30,14 +34,14 @@
 }
 
 .highlighted {
-  border-color: var(--graph-primary);
-  box-shadow: var(--graph-shadow);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
 .selected {
   width: 232px;
-  border-color: var(--graph-primary);
-  background: var(--graph-primary-surface);
+  border-color: var(--color-primary);
+  background: var(--graph-selected-surface);
 }
 
 .icon {
@@ -49,13 +53,13 @@
   border-radius: 8px;
   background: var(--graph-icon-surface);
   color: var(--graph-icon);
-  font-size: 15px;
+  font-size: var(--font-sm);
 }
 
-.skill .icon { color: var(--graph-skill); }
+.skill   .icon { color: var(--graph-skill); }
 .project .icon { color: var(--graph-project); }
 .resource .icon { color: var(--graph-resource); }
-.role .icon { color: var(--graph-role); }
+.role    .icon { color: var(--graph-role); }
 .company .icon { color: var(--graph-company); }
 
 .copy {

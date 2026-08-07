@@ -1,65 +1,15 @@
-* {
+@import "./themes.css";
+
+/* ── Reset ───────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --app-page-background: #0d1117;
-  --app-surface: #161b22;
-  --app-surface-raised: #21262d;
-  --app-glass-surface: rgba(22, 27, 34, 0.92);
-  --app-glass-border: #30363d;
-  --app-text: #f0f6fc;
-  --app-text-secondary: #8b949e;
-  --app-text-muted: #6e7681;
-  --app-focus: #2f81f7;
-  --app-active-border: rgba(47, 129, 247, 0.4);
-  --app-hero-glow: rgba(47, 129, 247, 0.1);
-  --app-radius-card: 12px;
-  --app-radius-pill: 999px;
-  --app-space-xs: 8px;
-  --app-space-sm: 12px;
-  --app-space-md: 16px;
-  --app-space-lg: 24px;
-  --app-space-xl: 32px;
-  --app-space-xxl: 48px;
-  --app-shadow-card: 0 3px 8px rgba(1, 4, 9, 0.28);
-  --app-shadow-hover: 0 8px 20px rgba(1, 4, 9, 0.34);
-  --app-motion-fast: 180ms;
-  --app-motion-medium: 220ms;
-  --app-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --graph-canvas: var(--app-page-background);
-  --graph-surface: var(--app-surface);
-  --graph-node-surface: var(--app-surface-raised);
-  --graph-primary-surface: rgba(47, 129, 247, 0.16);
-  --graph-border: var(--app-glass-border);
-  --graph-node-border: var(--app-glass-border);
-  --graph-node-hover: var(--app-focus);
-  --graph-primary: var(--app-focus);
-  --graph-text: var(--app-text);
-  --graph-text-muted: var(--app-text-secondary);
-  --graph-edge: var(--app-focus);
-  --graph-grid: var(--app-glass-border);
-  --graph-minimap-node: var(--app-focus);
-  --graph-minimap-mask: rgba(13, 17, 23, 0.76);
-  --graph-icon-surface: var(--app-surface);
-  --graph-icon: var(--app-text);
-  --graph-skill: var(--app-focus);
-  --graph-project: var(--app-text-secondary);
-  --graph-resource: #3fb950;
-  --graph-role: #d29922;
-  --graph-company: var(--app-text-secondary);
-  --graph-radius: 12px;
-  --graph-radius-sm: 8px;
-  --graph-space-md: 16px;
-  --graph-space-lg: 24px;
-  --graph-shadow: var(--app-shadow-card);
-  --graph-node-shadow: var(--app-shadow-card);
-  --graph-motion-ease: var(--app-motion-ease);
-}
-
+/* ── Base ────────────────────────────────────────────────────────────────────── */
 html,
 body,
 #root {
@@ -68,6 +18,7 @@ body,
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: var(--app-page-background);
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }

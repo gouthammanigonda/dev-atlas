@@ -1,16 +1,17 @@
 .layout {
   min-height: 100vh;
+  background: var(--bg-primary);
 }
 
 .content {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: var(--app-space-xl) var(--app-space-lg) var(--app-space-xxl);
+  padding: var(--spacing-6) var(--spacing-5) var(--spacing-7);
 }
 
 @media (max-width: 768px) {
   .content {
-    padding: var(--app-space-lg) var(--app-space-md) var(--app-space-xl);
+    padding: var(--spacing-5) var(--spacing-4) var(--spacing-6);
   }
 }

@@ -3,6 +3,7 @@ import { CompassOutlined } from "@ant-design/icons";
 import { Space, Typography } from "antd";
 
 import { SearchBar } from "./";
+import ThemeSelector from "./ThemeSelector";
 
 import styles from "./Header.module.css";
 
@@ -12,7 +13,6 @@ const Header = ({ filters, onSearchChange, onSkillSelect, searchValue }) => {
   useEffect(() => {
     const focusSearch = (event) => {
       const isTyping = ["INPUT", "TEXTAREA"].includes(event.target.tagName);
-
       if (event.key === "/" && !isTyping) {
         event.preventDefault();
         searchInputRef.current?.focus();
@@ -25,6 +25,11 @@ const Header = ({ filters, onSearchChange, onSkillSelect, searchValue }) => {
 
   return (
     <div className={styles.container}>
+      {/* Theme selector — top right */}
+      <div className={styles.themeControls}>
+        <ThemeSelector />
+      </div>
+
       <Space
         direction="vertical"
         size={32}

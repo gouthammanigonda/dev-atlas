@@ -3,9 +3,9 @@ import { Descriptions, Divider, Drawer, Modal, Tag, Typography } from "antd";
 import styles from "./NodeDetailsPanel.module.css";
 
 const difficultyColor = {
-  Easy: "green",
-  Medium: "gold",
-  Hard: "red",
+  Easy: "success",
+  Medium: "warning",
+  Hard: "error",
 };
 
 const NodeDetailsPanel = ({ onCloseProject, onCloseRole, project, role }) => (

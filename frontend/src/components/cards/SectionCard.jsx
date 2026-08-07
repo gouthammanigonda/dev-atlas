@@ -23,9 +23,9 @@ const sectionIcons = {
 };
 
 const difficultyColor = {
-  Easy: "green",
-  Medium: "gold",
-  Hard: "red",
+  Easy: "success",
+  Medium: "warning",
+  Hard: "error",
 };
 
 const SectionCard = ({ items = [], title, variant = "default" }) => {
@@ -35,7 +35,7 @@ const SectionCard = ({ items = [], title, variant = "default" }) => {
         <Flex vertical gap={6}>
           <Flex align="center" gap="small" wrap>
             <Typography.Text strong>{item.title || item.name}</Typography.Text>
-            {item.type && <Tag>{item.type}</Tag>}
+            {item.type && <Tag color="info">{item.type}</Tag>}
           </Flex>
           <Typography.Text type="secondary" className={styles.description}>
             {item.provider ? `Provided by ${item.provider}` : "Provider not specified"}

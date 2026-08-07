@@ -1,9 +1,9 @@
 .container {
   overflow: hidden;
-  border: 1px solid var(--app-glass-border);
-  border-radius: var(--app-radius-card);
-  background: var(--app-surface);
-  box-shadow: var(--app-shadow-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(14px);
 }
 
@@ -11,26 +11,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--graph-space-md);
-  padding: var(--graph-space-lg);
-  border-bottom: 1px solid var(--app-glass-border);
+  gap: var(--spacing-4);
+  padding: var(--spacing-5);
+  border-bottom: 1px solid var(--border-color);
   text-align: left;
 }
 
 .header h2 {
   margin: 0;
-  color: var(--graph-text);
-  font-size: 16px;
+  color: var(--text-primary);
+  font-size: var(--font-md);
 }
 
 .eyebrow,
 .hint {
-  color: var(--app-text-secondary);
-  font-size: 12px;
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
 }
 
 .eyebrow {
-  margin-bottom: 4px;
+  margin-bottom: var(--spacing-1);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -39,26 +39,26 @@
 .canvas {
   height: min(62vh, 640px);
   min-height: 440px;
-  background: var(--graph-canvas);
+  background: var(--graph-background);
 }
 
 .controls {
   overflow: hidden;
-  border: 1px solid var(--graph-border) !important;
-  border-radius: var(--graph-radius-sm) !important;
-  box-shadow: var(--graph-shadow) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 .controls button {
-  border-bottom-color: var(--graph-border) !important;
-  background: var(--graph-surface) !important;
-  fill: var(--graph-text) !important;
+  border-bottom-color: var(--border-color) !important;
+  background: var(--bg-secondary) !important;
+  fill: var(--text-primary) !important;
 }
 
 .minimap {
-  border: 1px solid var(--graph-border);
-  border-radius: var(--graph-radius-sm);
-  background: var(--graph-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
 }
 
 @media (max-width: 640px) {

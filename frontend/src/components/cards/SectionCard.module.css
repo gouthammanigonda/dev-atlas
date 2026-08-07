@@ -1,25 +1,27 @@
 .card {
   height: 100%;
   overflow: hidden;
-  border: 1px solid var(--app-glass-border);
-  border-radius: var(--app-radius-card);
-  background: var(--app-surface);
-  box-shadow: var(--app-shadow-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(14px);
-  transition: transform var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
+  transition:
+    transform var(--transition-fast) var(--transition-ease),
+    box-shadow var(--transition-fast) var(--transition-ease);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--app-shadow-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .card:focus-within {
-  border-color: var(--app-focus);
+  border-color: var(--color-primary);
 }
 
 .item {
-  padding: var(--app-space-md) var(--app-space-lg) !important;
+  padding: var(--spacing-4) var(--spacing-5) !important;
 }
 
 .content {
@@ -27,8 +29,12 @@
 }
 
 .header {
-  color: var(--app-text);
-  font-size: 16px;
+  color: var(--text-primary);
+  font-size: var(--font-md);
+}
+
+.header :global(.anticon) {
+  color: var(--color-primary);
 }
 
 .count {
@@ -36,17 +42,17 @@
 }
 
 .description {
-  color: var(--app-text-secondary);
+  color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.5;
 }
 
 .empty {
-  padding: var(--app-space-xl) 0;
+  padding: var(--spacing-6) 0;
 }
 
 .empty :global(.ant-empty-description) {
-  color: var(--app-text-secondary);
+  color: var(--text-secondary);
 }
 
 .externalLink {

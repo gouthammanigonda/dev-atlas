@@ -1,22 +1,24 @@
 .card {
-  margin-bottom: var(--app-space-lg);
-  border: 1px solid var(--app-glass-border);
-  border-radius: var(--app-radius-card);
-  background: var(--app-surface);
-  box-shadow: var(--app-shadow-card);
+  margin-bottom: var(--spacing-5);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(14px);
-  animation: fadeIn var(--app-motion-medium) var(--app-motion-ease) both;
-  transition: transform var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
+  animation: fadeIn var(--transition-normal) var(--transition-ease) both;
+  transition:
+    transform var(--transition-fast) var(--transition-ease),
+    box-shadow var(--transition-fast) var(--transition-ease);
 }
 
 .card:hover {
-  box-shadow: var(--app-shadow-hover);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
 .title {
   margin: 0 !important;
-  color: var(--graph-text) !important;
+  color: var(--text-primary) !important;
   font-size: 36px !important;
   letter-spacing: -0.8px;
   line-height: 1.2 !important;
@@ -25,14 +27,14 @@
 .description {
   max-width: 760px;
   margin: 0 !important;
-  color: var(--app-text-secondary);
-  font-size: 14px;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
   line-height: 1.7;
 }
 
 .metadata :global(.ant-tag) {
   margin-inline-end: 0;
-  border-radius: var(--app-radius-pill);
+  border-radius: var(--radius-lg);
 }
 
 @keyframes fadeIn {

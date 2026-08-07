@@ -97,6 +97,34 @@ dev-atlas/
 
 ---
 
+## Theme Engine
+
+DevAtlas uses a scalable, Design Token based Theme Engine allowing for instant swapping between multiple custom themes.
+
+### Design Token Architecture
+
+- **Single Source of Truth**: All themes are defined purely in CSS variables inside `frontend/src/styles/themes.css`.
+- **Zero Component Coupling**: React components and graphs consume semantic variables (e.g., `var(--bg-card)`, `var(--text-primary)`) and are completely unaware of the active theme.
+- **Dynamic Configuration**: The Theme Selector dropdown renders options dynamically from `frontend/src/theme/themeConfig.js`.
+
+### Supported Themes
+
+- 🌙 **Dark**: GitHub-inspired dark mode.
+- ☀️ **Light**: Notion-inspired light mode.
+- 🟣 **Dracula**: Purple/Pink coding theme.
+- 🌲 **Forest**: Dark green environment.
+- 🌊 **Ocean**: Blue/Teal oceanic theme.
+- 🌅 **Sunset**: Warm orange aesthetics.
+
+### How to Add a New Theme
+
+Adding a new theme is simple and requires zero changes to React components:
+
+1. Add a new CSS attribute selector block (`[data-theme="new-theme-id"]`) in `frontend/src/styles/themes.css` and define the required design tokens.
+2. Register the theme in `frontend/src/theme/themeConfig.js` by adding an entry to the `themes` array.
+
+---
+
 ## Installation
 
 ### Prerequisites

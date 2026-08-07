@@ -4,23 +4,7 @@ import { SearchOutlined } from "@ant-design/icons";
 
 import { useDebounce, useSearchSkills } from "../../../hooks";
 import styles from "./SearchBar.module.css";
-
-const highlightMatch = (text, query) => {
-  const normalizedQuery = query.trim();
-  const matchIndex = text.toLowerCase().indexOf(normalizedQuery.toLowerCase());
-
-  if (!normalizedQuery || matchIndex < 0) return text;
-
-  return (
-    <>
-      {text.slice(0, matchIndex)}
-      <mark className={styles.match}>
-        {text.slice(matchIndex, matchIndex + normalizedQuery.length)}
-      </mark>
-      {text.slice(matchIndex + normalizedQuery.length)}
-    </>
-  );
-};
+import { SearchSuggestionCard } from "../SearchSuggestionCard/SearchSuggestionCard";
 
 const SearchBar = forwardRef(
   ({ filters, onChange, onSkillSelect, value }, ref) => {
@@ -43,15 +27,7 @@ const SearchBar = forwardRef(
       () =>
         (isSearchPending ? [] : filteredSkills).map((skill) => ({
           value: skill.name,
-          label: (
-            <div className={styles.suggestion}>
-              <strong>{highlightMatch(skill.name, value)}</strong>
-              <span className={styles.metadata}>
-                {skill.category}
-                {skill.difficulty && <Tag>{skill.difficulty}</Tag>}
-              </span>
-            </div>
-          ),
+          label: <SearchSuggestionCard skill={skill} query={value} />,
         })),
       [filteredSkills, isSearchPending, value],
     );

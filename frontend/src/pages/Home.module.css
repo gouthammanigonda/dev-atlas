@@ -1,14 +1,14 @@
 .discovery {
   display: grid;
-  gap: var(--app-space-lg);
+  gap: var(--spacing-5);
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding-bottom: var(--app-space-xxl);
+  padding-bottom: var(--spacing-7);
 }
 
 .emptyState {
-  padding: var(--app-space-xl) 0;
+  padding: var(--spacing-6) 0;
 }
 
 .emptyState :global(.ant-empty-image) {
@@ -16,7 +16,7 @@
 }
 
 .emptyState :global(.ant-empty-description) {
-  color: var(--app-text-secondary);
-  font-size: 15px;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
   line-height: 1.6;
 }

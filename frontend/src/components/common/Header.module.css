@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  padding: var(--app-space-xxl) var(--app-space-lg) var(--app-space-xl);
+  padding: var(--spacing-7) var(--app-space-lg, var(--spacing-5)) var(--app-space-xl, var(--spacing-6));
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -13,10 +13,17 @@
   width: 480px;
   height: 360px;
   border-radius: 50%;
-  background: var(--app-hero-glow);
+  background: var(--hero-glow);
   content: "";
   filter: blur(64px);
   pointer-events: none;
+}
+
+.themeControls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
 }
 
 .content {
@@ -28,14 +35,14 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--app-space-sm);
-  color: var(--app-focus);
+  gap: var(--spacing-3);
+  color: var(--color-primary);
 }
 
 .title {
   margin: 0 !important;
   text-align: center;
-  font-size: 48px !important;
+  font-size: var(--font-hero) !important;
   letter-spacing: -1.5px;
   line-height: 1.1 !important;
 }
@@ -43,37 +50,42 @@
 .subtitle {
   max-width: 560px;
   text-align: center;
-  color: var(--app-text-secondary);
-  font-size: 15px;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
   line-height: 1.6;
 }
 
 .searchPanel {
   width: 100%;
   padding: 0;
-  border: 1px solid var(--app-glass-border);
-  border-radius: var(--graph-radius-sm);
-  background: var(--app-surface);
-  box-shadow: var(--app-shadow-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(14px);
 }
 
 .shortcut {
-  color: var(--app-text-secondary);
-  font-size: 12px;
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
 }
 
 @media (max-width: 640px) {
   .container {
-    padding: var(--app-space-xl) 0 var(--app-space-lg);
+    padding: var(--spacing-6) 0 var(--spacing-5);
   }
 
   .subtitle {
-    font-size: 15px;
+    font-size: var(--font-sm);
     line-height: 24px;
   }
 
   .title {
-    font-size: 38px !important;
+    font-size: var(--font-hero) !important;
+  }
+
+  .themeControls {
+    top: 12px;
+    right: 12px;
   }
 }

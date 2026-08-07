@@ -3,14 +3,14 @@
   width: 36px;
   height: 36px;
   flex: 0 0 auto;
-  border: 1px solid var(--app-glass-border);
-  border-radius: var(--graph-radius-sm);
-  background: var(--app-surface-raised);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  background: var(--bg-hover);
   object-fit: contain;
 }
 
 .fallback {
   display: grid;
   place-items: center;
-  color: var(--app-focus);
+  color: var(--color-primary);
 }

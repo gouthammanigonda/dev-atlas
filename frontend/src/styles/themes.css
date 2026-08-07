@@ -1,0 +1,470 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ * DevAtlas Design Token System — themes.css
+ *
+ * Each theme defines the complete semantic token set.
+ * Components consume tokens only — they never know which theme is active.
+ *
+ * To add a new theme:
+ *   1. Add a [data-theme="your-id"] block below with all tokens defined.
+ *   2. Register it in src/theme/themeConfig.js.
+ *   Done. No component changes needed.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+
+/* ── Shared Design Tokens ───────────────────────────────────────────────────── */
+:root {
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+
+  --page-padding: var(--spacing-6);
+  --card-padding: var(--spacing-5);
+  --section-gap: var(--spacing-7);
+  --grid-gap: var(--spacing-5);
+  --stack-gap: var(--spacing-4);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Sizing */
+  --input-height: 40px;
+  --button-height: 40px;
+
+  /* Typography */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 22px;
+  --font-xxl: 24px;
+  --font-hero: 48px;
+
+  /* Semantic Maps (Shared) */
+  --timeline-active-bg: var(--bg-hover);
+  --timeline-active-border: var(--color-primary);
+  --timeline-active-title: var(--color-primary);
+  --timeline-active-text: var(--text-primary);
+  
+  --input-icon: var(--text-secondary);
+
+  /* Semantic Status Colors (Universal) */
+  --color-success:     #3fb950;
+  --color-warning:     #d29922;
+  --color-danger:      #f85149;
+  --color-info:        #2f81f7;
+  
+  --badge-bg:          var(--color-danger);
+  --badge-text:        #ffffff;
+  
+  --focus-ring:        color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+/* ── Smooth theme transition ────────────────────────────────────────────────── */
+html {
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+/* ── 🌙 Dark (GitHub Dark) ──────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* Background */
+  --bg-primary:        #0d1117;
+  --bg-secondary:      #161b22;
+  --bg-card:           #161b22;
+  --bg-hover:          #21262d;
+
+  /* Text */
+  --text-primary:      #f0f6fc;
+  --text-secondary:    #8b949e;
+  --text-muted:        #6e7681;
+
+  /* Borders */
+  --border-color:    #30363d;
+  --border-secondary:  #21262d;
+
+  /* Accent */
+  --color-primary:            #2f81f7;
+  --color-primary-hover:      #388bfd;
+
+  /* Hero glow */
+  --hero-glow:         rgba(47, 129, 247, 0.10);
+  /* Graph */
+  --graph-background:       #0d1117;
+  --graph-grid:             #30363d;
+  --graph-edge:             #2f81f7;
+  --graph-surface:          #161b22;
+  --graph-node-surface:     #21262d;
+  --graph-node-border:      #30363d;
+  --graph-node-hover:       #2f81f7;
+  --graph-selected-surface: rgba(47, 129, 247, 0.16);
+  --graph-text:             #f0f6fc;
+  --graph-text-muted:       #8b949e;
+  --graph-icon-surface:     #161b22;
+  --graph-icon:             #f0f6fc;
+  --graph-skill:            #2f81f7;
+  --graph-project:          #8b949e;
+  --graph-resource:         #3fb950;
+  --graph-role:             #d29922;
+  --graph-company:          #8b949e;
+  --graph-minimap-node:     #2f81f7;
+  --graph-minimap-mask:     rgba(13, 17, 23, 0.76);
+  /* Input */
+  --input-bg:          #0d1117;
+  --input-border:      #30363d;
+  --input-text:        #f0f6fc;
+  --input-placeholder: #8b949e;
+  --input-focus-border:#2f81f7;
+
+
+  /* Shadows */
+  --shadow-sm:  0 3px 8px rgba(1, 4, 9, 0.28);
+  --shadow-md:  0 8px 20px rgba(1, 4, 9, 0.40);
+  --shadow-lg:  0 16px 40px rgba(1, 4, 9, 0.52);
+  /* Motion */
+  --transition-fast:   180ms;
+  --transition-normal: 220ms;
+  --transition-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography */
+  --font-body:    "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}
+
+/* ── ☀️ Light (Notion-inspired) ─────────────────────────────────────────────── */
+[data-theme="light"] {
+  /* Background */
+  --bg-primary:        #ffffff;
+  --bg-secondary:      #f7f7f5;
+  --bg-card:           #ffffff;
+  --bg-hover:          #f0f0ee;
+
+  /* Text */
+  --text-primary:      #1a1a1a;
+  --text-secondary:    #6b6b6b;
+  --text-muted:        #9b9b9b;
+
+  /* Borders */
+  --border-color:    #e5e5e3;
+  --border-secondary:  #eeeeec;
+
+  /* Accent */
+  --color-primary:            #2383e2;
+  --color-primary-hover:      #1a6fc4;
+
+  /* Hero glow */
+  --hero-glow:         rgba(35, 131, 226, 0.08);
+  /* Graph */
+  --graph-background:       #f7f7f5;
+  --graph-grid:             #e0e0de;
+  --graph-edge:             #2383e2;
+  --graph-surface:          #ffffff;
+  --graph-node-surface:     #ffffff;
+  --graph-node-border:      #e5e5e3;
+  --graph-node-hover:       #2383e2;
+  --graph-selected-surface: rgba(35, 131, 226, 0.10);
+  --graph-text:             #1a1a1a;
+  --graph-text-muted:       #6b6b6b;
+  --graph-icon-surface:     #f7f7f5;
+  --graph-icon:             #1a1a1a;
+  --graph-skill:            #2383e2;
+  --graph-project:          #6b6b6b;
+  --graph-resource:         #0f7b0f;
+  --graph-role:             #c47d0e;
+  --graph-company:          #6b6b6b;
+  --graph-minimap-node:     #2383e2;
+  --graph-minimap-mask:     rgba(247, 247, 245, 0.76);
+  /* Input */
+  --input-bg:          #ffffff;
+  --input-border:      #e5e5e3;
+  --input-text:        #1a1a1a;
+  --input-placeholder: #6b6b6b;
+  --input-focus-border:#2383e2;
+
+
+  /* Shadows */
+  --shadow-sm:  0 1px 4px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.10), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.12), 0 16px 48px rgba(0, 0, 0, 0.08);
+  /* Motion */
+  --transition-fast:   180ms;
+  --transition-normal: 220ms;
+  --transition-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography */
+  --font-body:    "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}
+
+/* ── 🟣 Dracula ──────────────────────────────────────────────────────────────── */
+[data-theme="dracula"] {
+  /* Background */
+  --bg-primary:        #282a36;
+  --bg-secondary:      #21222c;
+  --bg-card:           #21222c;
+  --bg-hover:          #343746;
+
+  /* Text */
+  --text-primary:      #f8f8f2;
+  --text-secondary:    #6272a4;
+  --text-muted:        #44475a;
+
+  /* Borders */
+  --border-color:    #44475a;
+  --border-secondary:  #343746;
+
+  /* Accent */
+  --color-primary:            #bd93f9;
+  --color-primary-hover:      #caa9fa;
+
+  /* Hero glow */
+  --hero-glow:         rgba(189, 147, 249, 0.12);
+  /* Graph */
+  --graph-background:       #282a36;
+  --graph-grid:             #44475a;
+  --graph-edge:             #bd93f9;
+  --graph-surface:          #21222c;
+  --graph-node-surface:     #343746;
+  --graph-node-border:      #44475a;
+  --graph-node-hover:       #bd93f9;
+  --graph-selected-surface: rgba(189, 147, 249, 0.18);
+  --graph-text:             #f8f8f2;
+  --graph-text-muted:       #6272a4;
+  --graph-icon-surface:     #21222c;
+  --graph-icon:             #f8f8f2;
+  --graph-skill:            #bd93f9;
+  --graph-project:          #ff79c6;
+  --graph-resource:         #50fa7b;
+  --graph-role:             #f1fa8c;
+  --graph-company:          #8be9fd;
+  --graph-minimap-node:     #bd93f9;
+  --graph-minimap-mask:     rgba(40, 42, 54, 0.76);
+  /* Input */
+  --input-bg:          #282a36;
+  --input-border:      #44475a;
+  --input-text:        #f8f8f2;
+  --input-placeholder: #6272a4;
+  --input-focus-border:#bd93f9;
+
+
+  /* Shadows */
+  --shadow-sm:  0 3px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md:  0 8px 20px rgba(0, 0, 0, 0.52);
+  --shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.64);
+  /* Motion */
+  --transition-fast:   180ms;
+  --transition-normal: 220ms;
+  --transition-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography */
+  --font-body:    "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}
+
+/* ── 🌲 Forest ───────────────────────────────────────────────────────────────── */
+[data-theme="forest"] {
+  /* Background */
+  --bg-primary:        #0d1f0f;
+  --bg-secondary:      #132416;
+  --bg-card:           #132416;
+  --bg-hover:          #1a2e1d;
+
+  /* Text */
+  --text-primary:      #d4edda;
+  --text-secondary:    #7aad84;
+  --text-muted:        #4d7a56;
+
+  /* Borders */
+  --border-color:    #2a4a2e;
+  --border-secondary:  #1a2e1d;
+
+  /* Accent */
+  --color-primary:            #4caf65;
+  --color-primary-hover:      #5dc478;
+
+  /* Hero glow */
+  --hero-glow:         rgba(76, 175, 101, 0.10);
+  /* Graph */
+  --graph-background:       #0d1f0f;
+  --graph-grid:             #2a4a2e;
+  --graph-edge:             #4caf65;
+  --graph-surface:          #132416;
+  --graph-node-surface:     #1a2e1d;
+  --graph-node-border:      #2a4a2e;
+  --graph-node-hover:       #4caf65;
+  --graph-selected-surface: rgba(76, 175, 101, 0.16);
+  --graph-text:             #d4edda;
+  --graph-text-muted:       #7aad84;
+  --graph-icon-surface:     #132416;
+  --graph-icon:             #d4edda;
+  --graph-skill:            #4caf65;
+  --graph-project:          #7aad84;
+  --graph-resource:         #82e09a;
+  --graph-role:             #c8a840;
+  --graph-company:          #7aad84;
+  --graph-minimap-node:     #4caf65;
+  --graph-minimap-mask:     rgba(13, 31, 15, 0.76);
+  /* Input */
+  --input-bg:          #0d1f0f;
+  --input-border:      #2a4a2e;
+  --input-text:        #d4edda;
+  --input-placeholder: #7aad84;
+  --input-focus-border:#4caf65;
+
+
+  /* Shadows */
+  --shadow-sm:  0 3px 8px rgba(0, 0, 0, 0.32);
+  --shadow-md:  0 8px 20px rgba(0, 0, 0, 0.44);
+  --shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.56);
+  /* Motion */
+  --transition-fast:   180ms;
+  --transition-normal: 220ms;
+  --transition-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography */
+  --font-body:    "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}
+
+/* ── 🌊 Ocean ────────────────────────────────────────────────────────────────── */
+[data-theme="ocean"] {
+  /* Background */
+  --bg-primary:        #0a1628;
+  --bg-secondary:      #0f1f3d;
+  --bg-card:           #0f1f3d;
+  --bg-hover:          #142650;
+
+  /* Text */
+  --text-primary:      #cce7ff;
+  --text-secondary:    #6ea8d4;
+  --text-muted:        #3d6a8a;
+
+  /* Borders */
+  --border-color:    #1e3a5f;
+  --border-secondary:  #142650;
+
+  /* Accent */
+  --color-primary:            #00b4d8;
+  --color-primary-hover:      #0dcaf0;
+
+  /* Hero glow */
+  --hero-glow:         rgba(0, 180, 216, 0.10);
+  /* Graph */
+  --graph-background:       #0a1628;
+  --graph-grid:             #1e3a5f;
+  --graph-edge:             #00b4d8;
+  --graph-surface:          #0f1f3d;
+  --graph-node-surface:     #142650;
+  --graph-node-border:      #1e3a5f;
+  --graph-node-hover:       #00b4d8;
+  --graph-selected-surface: rgba(0, 180, 216, 0.16);
+  --graph-text:             #cce7ff;
+  --graph-text-muted:       #6ea8d4;
+  --graph-icon-surface:     #0f1f3d;
+  --graph-icon:             #cce7ff;
+  --graph-skill:            #00b4d8;
+  --graph-project:          #6ea8d4;
+  --graph-resource:         #06d6a0;
+  --graph-role:             #ffd166;
+  --graph-company:          #6ea8d4;
+  --graph-minimap-node:     #00b4d8;
+  --graph-minimap-mask:     rgba(10, 22, 40, 0.76);
+  /* Input */
+  --input-bg:          #0a1628;
+  --input-border:      #1e3a5f;
+  --input-text:        #cce7ff;
+  --input-placeholder: #6ea8d4;
+  --input-focus-border:#00b4d8;
+
+
+  /* Shadows */
+  --shadow-sm:  0 3px 8px rgba(0, 0, 0, 0.36);
+  --shadow-md:  0 8px 20px rgba(0, 0, 0, 0.48);
+  --shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.60);
+  /* Motion */
+  --transition-fast:   180ms;
+  --transition-normal: 220ms;
+  --transition-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography */
+  --font-body:    "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}
+
+/* ── 🌅 Sunset ───────────────────────────────────────────────────────────────── */
+[data-theme="sunset"] {
+  /* Background */
+  --bg-primary:        #1a0a00;
+  --bg-secondary:      #261200;
+  --bg-card:           #261200;
+  --bg-hover:          #331900;
+
+  /* Text */
+  --text-primary:      #fff0e0;
+  --text-secondary:    #c4885a;
+  --text-muted:        #7a5030;
+
+  /* Borders */
+  --border-color:    #4a2800;
+  --border-secondary:  #331900;
+
+  /* Accent */
+  --color-primary:            #ff6b35;
+  --color-primary-hover:      #ff8555;
+
+  /* Hero glow */
+  --hero-glow:         rgba(255, 107, 53, 0.12);
+  /* Graph */
+  --graph-background:       #1a0a00;
+  --graph-grid:             #4a2800;
+  --graph-edge:             #ff6b35;
+  --graph-surface:          #261200;
+  --graph-node-surface:     #331900;
+  --graph-node-border:      #4a2800;
+  --graph-node-hover:       #ff6b35;
+  --graph-selected-surface: rgba(255, 107, 53, 0.16);
+  --graph-text:             #fff0e0;
+  --graph-text-muted:       #c4885a;
+  --graph-icon-surface:     #261200;
+  --graph-icon:             #fff0e0;
+  --graph-skill:            #ff6b35;
+  --graph-project:          #c4885a;
+  --graph-resource:         #52c41a;
+  --graph-role:             #faad14;
+  --graph-company:          #c4885a;
+  --graph-minimap-node:     #ff6b35;
+  --graph-minimap-mask:     rgba(26, 10, 0, 0.76);
+  /* Input */
+  --input-bg:          #1a0a00;
+  --input-border:      #4a2800;
+  --input-text:        #fff0e0;
+  --input-placeholder: #c4885a;
+  --input-focus-border:#ff6b35;
+
+
+  /* Shadows */
+  --shadow-sm:  0 3px 8px rgba(0, 0, 0, 0.36);
+  --shadow-md:  0 8px 20px rgba(0, 0, 0, 0.48);
+  --shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.60);
+  /* Motion */
+  --transition-fast:   180ms;
+  --transition-normal: 220ms;
+  --transition-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography */
+  --font-body:    "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}

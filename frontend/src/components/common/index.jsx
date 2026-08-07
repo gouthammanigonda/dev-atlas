@@ -1,3 +1,4 @@
 export { default as Header } from "./Header";
 export { default as SearchBar } from "./SearchBar";
 export { default as SkillFilters } from "./SkillFilters";
+export { default as ThemeSelector } from "./ThemeSelector";

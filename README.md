@@ -21,14 +21,6 @@
 
 ---
 
-## 🎬 Demo
-
-<p align="center">
-    <img src="./docs/demo.gif" alt="DevAtlas Demo" width="100%">
-</p>
-
----
-
 ## 📖 About
 
 **DevAtlas** visualizes developer knowledge as an interactive graph instead of traditional cards or dashboards.
@@ -55,30 +47,7 @@
 - **📚 Learning Resources:** Get curated links to courses, documentation, and external guides.
 - **🏗️ Projects:** View real-world applications and projects that you can build to master a skill.
 - **🏢 Companies:** See a list of companies utilizing the tech stack.
-- **🎨 Theme Support:** Instantly switch between multiple beautifully crafted themes (Dark, Light, Dracula, Forest, Ocean, Sunset) using a robust Design Token system.
 - **📱 Responsive Design:** A flawless experience across desktop, tablet, and mobile devices.
-
----
-
-## 📸 Screenshots
-
-### Home
-
-```
-(Add Screenshot)
-```
-
-### Skill Page
-
-```
-(Add Screenshot)
-```
-
-### Knowledge Graph
-
-```
-(Add Screenshot)
-```
 
 ---
 
@@ -213,13 +182,17 @@ Every push to the `main` branch automatically triggers the GitHub Actions CI pip
 
 You can discover a technology in multiple ways. Search using the search bar by typing a skill name (React, Node.js, Docker, etc.). Matching skills appear instantly in the dropdown. Simply click a search result to open the Skill Details page.
 
-_(Search GIF placeholder)_
+<video src="https://github.com/user-attachments/assets/3931a269-50f7-478a-bb28-2896f35c7292" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 2 — Browse Using Tags
 
 You don't need to type to start exploring. You can simply click one of the quick tags on the home page (like React, TypeScript, Docker, SQL, or Python). After clicking a tag, the search box is populated automatically, and you simply press Search (or Enter) to navigate to that skill.
 
-_(Tags GIF placeholder)_
+<video src="https://github.com/user-attachments/assets/3c03ce1c-5403-4279-8829-73daceb95594" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 3 — Filter Skills
 
@@ -228,13 +201,13 @@ Filters work together with search to narrow down results.
 - **Category Filter:** Filter by domains such as Frontend, Backend, DevOps, or Database.
 - **Difficulty Filter:** Filter by skill levels such as Beginner, Intermediate, or Advanced.
 
-_(Filters GIF placeholder)_
+<video src="https://github.com/user-attachments/assets/8a168b74-2191-4e7d-bf25-c366b642b65c" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 4 — Explore the Skill Page
 
 After opening a skill, you'll be greeted with a comprehensive dashboard. Here you can view the skill overview, its difficulty level, the estimated learning time, its category, and various quick actions.
-
-_(Skill Overview GIF placeholder)_
 
 ### Step 5 — Explore the Interactive Knowledge Graph
 
@@ -249,7 +222,9 @@ You can interact with the graph intuitively:
 
 Every edge represents a relationship between skills (e.g., _Requires_, _Leads To_, _Used In_, _Learn From_).
 
-_(Graph GIF placeholder)_
+<video src="https://github.com/user-attachments/assets/68200965-5308-440f-91da-7c374bac4293" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 6 — Learn Through Related Sections
 
@@ -260,13 +235,9 @@ Below the graph, you will find additional structured information related to the 
 - Projects
 - Learning Resources
 
-_(Details Section GIF placeholder)_
-
-### Step 7 — Switch Themes
-
-The application supports multiple handcrafted themes. The theme selector is available in the header and instantly switches the entire UI. Your theme preference is remembered across sessions.
-
-_(Theme GIF placeholder)_
+<video src="https://github.com/user-attachments/assets/27653247-12cc-4a0e-8b2c-7b6f92d61a00" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ---
 

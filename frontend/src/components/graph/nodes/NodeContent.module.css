@@ -1,0 +1,63 @@
+.node {
+  display: flex;
+  width: 208px;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--graph-node-border);
+  border-radius: var(--graph-radius-sm);
+  background: var(--graph-node-surface);
+  box-shadow: var(--graph-node-shadow);
+  color: var(--graph-text);
+}
+
+.node:hover {
+  border-color: var(--graph-node-hover);
+}
+
+.selected {
+  width: 232px;
+  border-color: var(--graph-primary);
+  background: var(--graph-primary-surface);
+}
+
+.icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--graph-icon-surface);
+  color: var(--graph-icon);
+  font-size: 15px;
+}
+
+.skill .icon { color: var(--graph-skill); }
+.project .icon { color: var(--graph-project); }
+.resource .icon { color: var(--graph-resource); }
+.role .icon { color: var(--graph-role); }
+.company .icon { color: var(--graph-company); }
+
+.copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.type,
+.meta {
+  overflow: hidden;
+  color: var(--graph-text-muted);
+  font-size: 11px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copy strong {
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,38 +1,44 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AutoComplete, Input } from "antd";
-import { useNavigate } from "react-router-dom";
+import { SearchOutlined } from "@ant-design/icons";
 
-import { useSearchSkills, useDebounce } from "../../hooks";
+import { useSearchSkills } from "../../hooks";
+import styles from "./SearchBar.module.css";
 
-export default function SearchBar() {
+const SearchBar = ({ onSkillSelect }) => {
   const [search, setSearch] = useState("");
 
-  const debouncedSearch = useDebounce(search);
+  const { data = [], isFetching } = useSearchSkills(search);
 
-  const { data, isLoading } = useSearchSkills(debouncedSearch);
-
-  console.log(data);
-
-  const options =
-    data?.map((skill) => ({
+  const options = useMemo(() => {
+    return data.map((skill) => ({
       value: skill.name,
       label: skill.name,
-    })) || [];
+    }));
+  }, [data]);
 
-  const navigate = useNavigate();
+  const handleSelect = (value) => {
+    setSearch(value);
+    onSkillSelect(value);
+  };
 
   return (
     <AutoComplete
-      style={{ width: "100%" }}
+      value={search}
       options={options}
-      onSelect={(value) => navigate(`/skill/${value}`)}
+      onSearch={setSearch}
+      onSelect={handleSelect}
+      className={styles.autoComplete}
+      notFoundContent={isFetching ? "Searching..." : "No Skills Found"}
     >
-      <Input.Search
-        placeholder="Search Skills..."
-        value={search}
-        loading={isLoading}
-        onChange={(e) => setSearch(e.target.value)}
+      <Input
+        size="large"
+        prefix={<SearchOutlined />}
+        placeholder="Search React, Node.js, Docker..."
+        allowClear
       />
     </AutoComplete>
   );
-}
+};
+
+export default SearchBar;

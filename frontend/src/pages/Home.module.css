@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 0;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 0;
+}
+
+.content {
+  margin-top: 32px;
+}
+
+.graphContainer {
+  margin-top: 32px;
+}
+
+.sectionGrid {
+  margin-top: 24px;
+}

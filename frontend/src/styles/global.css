@@ -4,6 +4,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --graph-canvas: #0f1117;
+  --graph-surface: #171a21;
+  --graph-node-surface: #1d212b;
+  --graph-primary-surface: #15213c;
+  --graph-border: #2a2f3a;
+  --graph-node-border: #3a4252;
+  --graph-node-hover: #5b8cff;
+  --graph-primary: #5b8cff;
+  --graph-text: #f5f5f5;
+  --graph-text-muted: #a6adb8;
+  --graph-edge: #5b8cff;
+  --graph-grid: #2a2f3a;
+  --graph-minimap-node: #5b8cff;
+  --graph-minimap-mask: rgba(15, 17, 23, 0.72);
+  --graph-icon-surface: #252b37;
+  --graph-icon: #f5f5f5;
+  --graph-skill: #5b8cff;
+  --graph-project: #a78bfa;
+  --graph-resource: #22c55e;
+  --graph-role: #f59e0b;
+  --graph-company: #ec4899;
+  --graph-radius: 12px;
+  --graph-radius-sm: 8px;
+  --graph-space-md: 16px;
+  --graph-space-lg: 24px;
+  --graph-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+  --graph-node-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 html,
 body,
 #root {

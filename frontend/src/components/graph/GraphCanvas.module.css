@@ -1,0 +1,77 @@
+.container {
+  overflow: hidden;
+  border: 1px solid var(--graph-border);
+  border-radius: var(--graph-radius);
+  background: var(--graph-surface);
+  box-shadow: var(--graph-shadow);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--graph-space-md);
+  padding: var(--graph-space-lg);
+  border-bottom: 1px solid var(--graph-border);
+  text-align: left;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--graph-text);
+  font-size: 18px;
+}
+
+.eyebrow,
+.hint {
+  color: var(--graph-text-muted);
+  font-size: 12px;
+}
+
+.eyebrow {
+  margin-bottom: 4px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.canvas {
+  height: min(62vh, 640px);
+  min-height: 440px;
+  background: var(--graph-canvas);
+}
+
+.controls {
+  overflow: hidden;
+  border: 1px solid var(--graph-border) !important;
+  border-radius: var(--graph-radius-sm) !important;
+  box-shadow: var(--graph-shadow) !important;
+}
+
+.controls button {
+  border-bottom-color: var(--graph-border) !important;
+  background: var(--graph-surface) !important;
+  fill: var(--graph-text) !important;
+}
+
+.minimap {
+  border: 1px solid var(--graph-border);
+  border-radius: var(--graph-radius-sm);
+  background: var(--graph-surface);
+}
+
+@media (max-width: 640px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .canvas {
+    height: 480px;
+    min-height: 0;
+  }
+
+  .minimap {
+    display: none;
+  }
+}

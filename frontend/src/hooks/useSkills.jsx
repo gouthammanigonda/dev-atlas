@@ -15,14 +15,15 @@ export const useSkills = () => {
 // Search Skills
 export const useSearchSkills = (query) => {
   return useQuery({
-    queryKey: ["search-skills", query],
+    queryKey: ["search", query],
     queryFn: async () => {
       const { data } = await client.get("/skills/search", {
         params: { q: query },
       });
+
       return data;
     },
-    enabled: !!query,
+    enabled: query.trim().length > 0,
   });
 };
 

@@ -1,35 +1,55 @@
-import { Layout, Typography, Space, Button } from "antd";
+import { Space, Tag, Typography } from "antd";
 
-const { Header: AntHeader } = Layout;
-const { Title } = Typography;
+import { SearchBar } from "./";
 
-export default function Header() {
+import styles from "./Header.module.css";
+
+const popularSkills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Docker",
+];
+
+const Header = ({ onSkillSelect = () => {} }) => {
   return (
-    <AntHeader
-      style={{
-        background: "#171A21",
-        borderBottom: "1px solid #2A2F3A",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        paddingInline: 32,
-      }}
-    >
-      <Title
-        level={3}
-        style={{
-          color: "#fff",
-          margin: 0,
-        }}
+    <div className={styles.container}>
+      <Space
+        direction="vertical"
+        size={32}
+        align="center"
+        className={styles.content}
       >
-        DevAtlas
-      </Title>
+        <Space direction="vertical" size={8} align="center">
+          <Typography.Title level={1} className={styles.title}>
+            DevAtlas
+          </Typography.Title>
 
-      <Space>
-        <Button type="text">Documentation</Button>
+          <Typography.Text className={styles.subtitle}>
+            Explore developer skills, learning paths, projects and career
+            opportunities visually.
+          </Typography.Text>
+        </Space>
 
-        <Button type="primary">GitHub</Button>
+        <SearchBar onSkillSelect={onSkillSelect} />
+
+        <Space wrap size={[8, 8]} justify="center">
+          {popularSkills.map((skill) => (
+            <Tag
+              key={skill}
+              className={styles.tag}
+              onClick={() => onSkillSelect(skill)}
+            >
+              {skill}
+            </Tag>
+          ))}
+        </Space>
       </Space>
-    </AntHeader>
+    </div>
   );
-}
+};
+
+export default Header;

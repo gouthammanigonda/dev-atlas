@@ -10,11 +10,17 @@ export const antdTheme = {
 
     colorBgContainer: colors.background.secondary,
 
+    colorBgElevated: colors.background.secondary,
+
     colorBorder: colors.border.primary,
 
     colorText: colors.text.primary,
 
     colorTextSecondary: colors.text.secondary,
+
+    colorTextTertiary: colors.text.disabled,
+
+    controlHeightLG: 56,
 
     borderRadius: radius.md,
 

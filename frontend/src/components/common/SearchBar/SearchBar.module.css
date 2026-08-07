@@ -6,8 +6,8 @@
 .dropdown {
   overflow: hidden;
   border: 1px solid var(--app-glass-border);
-  border-radius: var(--graph-radius-sm);
-  background: var(--app-surface-raised);
+  border-radius: var(--app-radius-card);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-hover);
 }
 
@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--graph-text-muted);
+  color: var(--app-text-secondary);
   font-size: 12px;
 }
 
@@ -36,9 +36,21 @@
 }
 
 .autoComplete :global(.ant-input-affix-wrapper) {
+  height: 56px;
+  border-color: var(--app-glass-border);
   border-radius: var(--graph-radius-sm);
+  background: var(--app-surface);
+  box-shadow: var(--app-shadow-card);
+  font-size: 16px;
+  transition: border-color var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
 }
 
 .autoComplete :global(.ant-input-affix-wrapper:focus-within) {
-  box-shadow: 0 0 0 3px var(--app-hero-glow);
+  border-color: var(--app-focus);
+  box-shadow: 0 0 0 3px var(--app-hero-glow), var(--app-shadow-card);
+}
+
+.autoComplete :global(.ant-input::placeholder) {
+  color: var(--app-text-secondary);
+  opacity: 1;
 }

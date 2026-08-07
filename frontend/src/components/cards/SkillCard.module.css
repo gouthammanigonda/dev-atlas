@@ -1,8 +1,8 @@
 .card {
-  margin-bottom: 24px;
+  margin-bottom: var(--app-space-lg);
   border: 1px solid var(--app-glass-border);
   border-radius: var(--app-radius-card);
-  background: var(--app-glass-surface);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-card);
   backdrop-filter: blur(14px);
   animation: fadeIn var(--app-motion-medium) var(--app-motion-ease) both;
@@ -17,13 +17,17 @@
 .title {
   margin: 0 !important;
   color: var(--graph-text) !important;
+  font-size: 36px !important;
+  letter-spacing: -0.8px;
+  line-height: 1.2 !important;
 }
 
 .description {
   max-width: 760px;
   margin: 0 !important;
-  font-size: 16px;
-  line-height: 1.65;
+  color: var(--app-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .metadata :global(.ant-tag) {

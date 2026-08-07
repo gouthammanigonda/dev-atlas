@@ -4,13 +4,13 @@
 
 .content {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: var(--app-space-xl) var(--app-space-lg) var(--app-space-xxl);
 }
 
 @media (max-width: 768px) {
   .content {
-    padding: 24px 16px 48px;
+    padding: var(--app-space-lg) var(--app-space-md) var(--app-space-xl);
   }
 }

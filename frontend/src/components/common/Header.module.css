@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  padding: 72px 24px 56px;
+  padding: var(--app-space-xxl) var(--app-space-lg) var(--app-space-xl);
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -9,20 +9,20 @@
 
 .container::before {
   position: absolute;
-  top: -220px;
-  width: 520px;
-  height: 420px;
+  top: -260px;
+  width: 480px;
+  height: 360px;
   border-radius: 50%;
   background: var(--app-hero-glow);
   content: "";
-  filter: blur(56px);
+  filter: blur(64px);
   pointer-events: none;
 }
 
 .content {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 640px;
 }
 
 .brand {
@@ -35,36 +35,45 @@
 .title {
   margin: 0 !important;
   text-align: center;
+  font-size: 48px !important;
+  letter-spacing: -1.5px;
+  line-height: 1.1 !important;
 }
 
 .subtitle {
-  max-width: 600px;
+  max-width: 560px;
   text-align: center;
-  font-size: 16px;
-  line-height: 28px;
+  color: var(--app-text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .searchPanel {
   width: 100%;
-  padding: var(--app-space-xs);
+  padding: 0;
   border: 1px solid var(--app-glass-border);
-  border-radius: var(--app-radius-card);
-  background: var(--app-glass-surface);
+  border-radius: var(--graph-radius-sm);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-card);
   backdrop-filter: blur(14px);
 }
 
 .shortcut {
+  color: var(--app-text-secondary);
   font-size: 12px;
 }
 
 @media (max-width: 640px) {
   .container {
-    padding: 48px 0 40px;
+    padding: var(--app-space-xl) 0 var(--app-space-lg);
   }
 
   .subtitle {
     font-size: 15px;
     line-height: 24px;
+  }
+
+  .title {
+    font-size: 38px !important;
   }
 }

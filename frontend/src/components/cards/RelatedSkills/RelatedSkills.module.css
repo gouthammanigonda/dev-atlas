@@ -3,7 +3,8 @@
 }
 
 .title {
-  margin-bottom: 16px !important;
+  margin-bottom: var(--app-space-md) !important;
+  font-size: 28px !important;
 }
 
 .groups {
@@ -20,7 +21,7 @@
   height: 100%;
   border: 1px solid var(--app-glass-border);
   border-radius: var(--app-radius-card);
-  background: var(--app-glass-surface);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-card);
   transition: transform var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
 }
@@ -33,7 +34,9 @@
 
 .description {
   display: block;
-  margin-top: 6px;
+  margin-top: var(--app-space-xs);
+  color: var(--app-text-secondary);
+  font-size: 14px;
 }
 
 .empty {

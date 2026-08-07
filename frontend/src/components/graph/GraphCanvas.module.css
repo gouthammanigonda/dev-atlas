@@ -1,9 +1,10 @@
 .container {
   overflow: hidden;
-  border: 1px solid var(--graph-border);
-  border-radius: var(--graph-radius);
-  background: var(--graph-surface);
-  box-shadow: var(--graph-shadow);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+  backdrop-filter: blur(14px);
 }
 
 .header {
@@ -12,7 +13,7 @@
   justify-content: space-between;
   gap: var(--graph-space-md);
   padding: var(--graph-space-lg);
-  border-bottom: 1px solid var(--graph-border);
+  border-bottom: 1px solid var(--app-glass-border);
   text-align: left;
 }
 

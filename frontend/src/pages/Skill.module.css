@@ -1,6 +1,6 @@
 .content {
   margin-top: 32px;
-  animation: fadeIn 360ms var(--graph-motion-ease) both;
+  animation: fadeIn var(--app-motion-medium) var(--app-motion-ease) both;
 }
 
 .breadcrumb {
@@ -9,12 +9,27 @@
 
 .backButton {
   margin-bottom: 16px;
+  transition: transform var(--app-motion-fast) var(--app-motion-ease);
+}
+
+.backButton:hover {
+  transform: translateX(-2px);
+}
+
+.backButton:focus-visible {
+  outline: 2px solid var(--app-focus);
+  outline-offset: 2px;
 }
 
 .graphContainer {
   margin-top: 32px;
+  padding: var(--app-space-xs);
   min-width: 0;
   overflow: hidden;
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
 }
 
 .sectionGrid {
@@ -44,6 +59,8 @@
 
   .graphContainer {
     margin-inline: -16px;
+    border-inline: 0;
+    border-radius: 0;
   }
 
   .emptyState {

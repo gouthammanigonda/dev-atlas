@@ -1,13 +1,35 @@
 .container {
+  position: relative;
   width: 100%;
-  padding: 72px 24px 48px;
+  padding: 72px 24px 56px;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+}
+
+.container::before {
+  position: absolute;
+  top: -220px;
+  width: 520px;
+  height: 420px;
+  border-radius: 50%;
+  background: var(--app-hero-glow);
+  content: "";
+  filter: blur(56px);
+  pointer-events: none;
 }
 
 .content {
+  position: relative;
   width: 100%;
   max-width: 800px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-sm);
+  color: var(--app-focus);
 }
 
 .title {
@@ -22,6 +44,27 @@
   line-height: 28px;
 }
 
+.searchPanel {
+  width: 100%;
+  padding: var(--app-space-xs);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+  backdrop-filter: blur(14px);
+}
+
 .shortcut {
   font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 48px 0 40px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }

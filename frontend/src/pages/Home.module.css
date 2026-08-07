@@ -1,6 +1,6 @@
 .discovery {
   display: grid;
-  gap: 32px;
+  gap: var(--app-space-lg);
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -8,5 +8,5 @@
 }
 
 .emptyState {
-  padding: 8px 0;
+  padding: var(--app-space-lg) 0;
 }

@@ -59,6 +59,7 @@ const SearchBar = forwardRef(
         onChange={onChange}
         onSelect={handleSelect}
         className={styles.autoComplete}
+        popupClassName={styles.dropdown}
         notFoundContent={getNotFoundContent()}
       >
         <Input

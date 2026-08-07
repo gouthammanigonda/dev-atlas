@@ -1,4 +1,4 @@
-import { Button, Card, Empty, Flex, List, Tag, Typography } from "antd";
+import { Badge, Button, Card, Empty, Flex, List, Tag, Typography } from "antd";
 import {
   ApartmentOutlined,
   BookOutlined,
@@ -104,9 +104,10 @@ const SectionCard = ({ items = [], title, variant = "default" }) => {
   return (
     <Card
       title={
-        <Flex align="center" gap={8}>
+        <Flex align="center" gap={8} className={styles.header}>
           {sectionIcons[title] || <BookOutlined />}
           <span>{title}</span>
+          <Badge count={items.length} showZero className={styles.count} />
         </Flex>
       }
       className={styles.card}

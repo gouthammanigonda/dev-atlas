@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { CompassOutlined } from "@ant-design/icons";
 import { Space, Typography } from "antd";
 
 import { SearchBar } from "./";
@@ -31,9 +32,12 @@ const Header = ({ onSearchChange, onSkillSelect, searchValue }) => {
         className={styles.content}
       >
         <Space direction="vertical" size={8} align="center">
-          <Typography.Title level={1} className={styles.title}>
-            DevAtlas
-          </Typography.Title>
+          <div className={styles.brand}>
+            <CompassOutlined aria-hidden="true" />
+            <Typography.Title level={1} className={styles.title}>
+              DevAtlas
+            </Typography.Title>
+          </div>
 
           <Typography.Text className={styles.subtitle}>
             Explore developer skills, learning paths, projects and career
@@ -41,12 +45,14 @@ const Header = ({ onSearchChange, onSkillSelect, searchValue }) => {
           </Typography.Text>
         </Space>
 
-        <SearchBar
-          ref={searchInputRef}
-          value={searchValue}
-          onChange={onSearchChange}
-          onSkillSelect={onSkillSelect}
-        />
+        <div className={styles.searchPanel}>
+          <SearchBar
+            ref={searchInputRef}
+            value={searchValue}
+            onChange={onSearchChange}
+            onSkillSelect={onSkillSelect}
+          />
+        </div>
 
         <Typography.Text type="secondary" className={styles.shortcut}>
           Press / to focus search

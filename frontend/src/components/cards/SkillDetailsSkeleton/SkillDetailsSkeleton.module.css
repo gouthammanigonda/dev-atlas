@@ -8,6 +8,10 @@
 .graphCard,
 .sectionCard {
   height: 100%;
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
 }
 
 .graphCard {

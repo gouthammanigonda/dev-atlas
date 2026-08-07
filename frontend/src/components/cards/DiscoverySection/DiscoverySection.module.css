@@ -1,0 +1,12 @@
+.section {
+  text-align: left;
+}
+
+.title {
+  margin-bottom: 14px !important;
+  font-size: 18px !important;
+}
+
+.chip {
+  border-radius: 999px;
+}

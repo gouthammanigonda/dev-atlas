@@ -35,66 +35,142 @@
 - [x] Search Bar
 - [x] Skill Card
 - [x] Section Card
+- [x] React Flow Integration
+- [x] Custom Nodes
+- [x] Custom Edges
+- [x] Graph Builder
+- [x] Graph Visualization
 - [x] API Integration
 
 ---
 
-# ✅ Phase 2 — Graph Visualization
+# 🚧 Phase 2 — Discovery Experience
 
-## React Flow
+## Home Page
 
-- [x] Install React Flow
-- [x] GraphView Component
-- [x] graphUtils
-- [x] Custom Node Types
-- [x] Skill Node
-- [x] Project Node
-- [x] Resource Node
-- [x] Role Node
-- [x] Company Node
-- [x] Edge Styling
-- [x] Initial Layout
-- [x] Zoom Controls
-- [x] MiniMap
-- [x] Background Grid
+- [ ] Hero Section
+- [ ] Search Bar
+- [ ] Debounced Search (300ms)
+- [ ] Ant Design AutoComplete
+- [ ] Keyboard Navigation
+- [ ] Enter Key Support
 
 ---
 
-# 🚧 Phase 3 — Auto Layout
+## Search Experience
 
-- [ ] Dagre Integration
-- [ ] Automatic Node Positioning
-- [ ] Horizontal Layout
-- [ ] Vertical Layout
-- [ ] Fit View
-- [ ] Node Animations
-
----
-
-# 🚧 Phase 4 — Graph Interactions
-
-- [ ] Expand Node
-- [ ] Collapse Node
-- [ ] Highlight Dependencies
-- [ ] Hover Effects
-- [ ] Click Animations
-- [ ] Search Highlight
+- [ ] Search Suggestions
+- [ ] Show Skill Category
+- [ ] Show Difficulty Badge
+- [ ] Loading Indicator
+- [ ] "Skill Not Found" State
+- [ ] Disable Navigation for Invalid Skills
 
 ---
 
-# 🚧 Phase 5 — UI Polish
+## Discovery Sections
 
-- [ ] Glassmorphism Cards
+### 🔥 Trending Skills
+
+- [ ] Trending Skills
+- [ ] Clickable Chips
+
+### ⭐ Popular Skills
+
+- [ ] Popular Skills
+- [ ] Clickable Chips
+
+### 🆕 Recently Added
+
+- [ ] Recently Added Skills
+- [ ] Clickable Chips
+
+### 🚀 Career Paths
+
+- [ ] Frontend
+- [ ] Backend
+- [ ] Full Stack
+- [ ] DevOps
+
+---
+
+## User Experience
+
+- [ ] Clicking a chip populates Search
+- [ ] Auto Trigger Search
+- [ ] Keep Search & Chips in Sync
+- [ ] Search History (Last 5)
+- [ ] Continue Learning (Future)
+- [ ] Keyboard Shortcut (/)
+- [ ] Empty State
+
+---
+
+## Navigation
+
+- [ ] React Router
+- [ ] Home Page
+- [ ] Skill Details Page
+- [ ] Dynamic Route (/skill/:name)
+- [ ] Navigate on Enter
+- [ ] Navigate on Search Selection
+- [ ] Browser Back Support
+- [ ] Browser Forward Support
+- [ ] 404 Skill Page
+
+---
+
+# 🚧 Phase 3 — Skill Experience
+
+## Hero Section
+
+- [ ] Skill Hero
+- [ ] Difficulty Badge
+- [ ] Estimated Learning Time
+- [ ] Category Badge
+
+---
+
+## Knowledge Graph
+
+- [ ] Integrate Existing React Flow Graph
+- [ ] Graph Container
+- [ ] Responsive Layout
+
+---
+
+## Information Sections
+
+- [ ] Prerequisites
+- [ ] Next Skills
+- [ ] Projects
+- [ ] Learning Resources
+- [ ] Career Opportunities
+- [ ] Companies
+
+---
+
+## Navigation
+
+- [ ] Back to Home
+- [ ] Breadcrumbs
+
+---
+
+# 🚧 Phase 4 — UI Polish
+
+- [ ] Glassmorphism
 - [ ] Better Typography
 - [ ] Icons
 - [ ] Skeleton Loaders
 - [ ] Empty States
 - [ ] Error States
-- [ ] Responsive Graph
+- [ ] Responsive Design
+- [ ] Micro Animations
 
 ---
 
-# 🚧 Phase 6 — Advanced Features
+# 🚧 Phase 5 — Advanced Features
 
 - [ ] Company Logos
 - [ ] Resource Links
@@ -103,19 +179,21 @@
 - [ ] Related Skills
 - [ ] Difficulty Filters
 - [ ] Category Filters
+- [ ] Bookmark Skills
+- [ ] Share Skill Page
 
 ---
 
-# 🚧 Phase 7 — Performance
+# 🚧 Phase 6 — Performance
 
-- [ ] Memoize Graph
+- [ ] Memoization
 - [ ] Lazy Loading
-- [ ] Graph Virtualization
+- [ ] React Query Optimizations
 - [ ] Bundle Optimization
 
 ---
 
-# 🚧 Phase 8 — Deployment
+# 🚧 Phase 7 — Deployment
 
 ## Backend
 
@@ -132,7 +210,7 @@
 
 ---
 
-# Stretch Goals
+# 🌟 Stretch Goals
 
 - [ ] Authentication
 - [ ] Save Learning Paths
@@ -143,10 +221,37 @@
 
 ---
 
-# Notes
+# 🚀 MVP User Journey
 
-Current focus:
-
-➡️ Build the React Flow graph first.
-
-Everything else is secondary until the graph visualization is production-ready.
+Home
+│
+├── Search Skills
+│
+├── Recommended Skills
+│
+├── AutoComplete Suggestions
+│
+├── Skill Validation
+│
+└── Press Enter / Select Skill
+│
+▼
+/skill/react
+│
+▼
+Skill Hero
+│
+▼
+Knowledge Graph
+│
+▼
+Projects
+│
+▼
+Resources
+│
+▼
+Roles
+│
+▼
+Companies

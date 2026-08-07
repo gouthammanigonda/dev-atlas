@@ -72,60 +72,100 @@ export async function getSkillGraph(name) {
   const session = driver.session();
 
   try {
-    const result = await session.run(
+    // Skill
+    const skillResult = await session.run(
       `
-      MATCH (skill:Skill {name:$name})
-
-      OPTIONAL MATCH (skill)-[:REQUIRES]->(pre:Skill)
-
-      OPTIONAL MATCH (skill)-[:LEADS_TO]->(next:Skill)
-
-      OPTIONAL MATCH (skill)-[:USED_IN]->(project:Project)
-
-      OPTIONAL MATCH (skill)-[:LEARN_FROM]->(resource:LearningResource)
-
-      RETURN
-        skill,
-        collect(DISTINCT pre) as prerequisites,
-        collect(DISTINCT next) as nextSkills,
-        collect(DISTINCT project) as projects,
-        collect(DISTINCT resource) as resources
+      MATCH (s:Skill {name:$name})
+      RETURN s
       `,
       { name }
     );
 
-    if (!result.records.length) {
+    if (skillResult.records.length === 0) {
       return null;
     }
 
-    const row = result.records[0];
+    const skill = skillResult.records[0].get("s").properties;
+
+    // Prerequisites
+    const preResult = await session.run(
+      `
+      MATCH (s:Skill {name:$name})-[:REQUIRES]->(p:Skill)
+      RETURN p
+      `,
+      { name }
+    );
+
+    const prerequisites = preResult.records.map((r) => r.get("p").properties);
+
+    // Next Skills
+    const nextResult = await session.run(
+      `
+      MATCH (s:Skill {name:$name})-[:LEADS_TO]->(n:Skill)
+      RETURN n
+      `,
+      { name }
+    );
+
+    const nextSkills = nextResult.records.map((r) => r.get("n").properties);
+
+    // Projects
+    const projectResult = await session.run(
+      `
+      MATCH (s:Skill {name:$name})-[:USED_IN]->(p:Project)
+      RETURN p
+      `,
+      { name }
+    );
+
+    const projects = projectResult.records.map((r) => r.get("p").properties);
+
+    // Resources
+    const resourceResult = await session.run(
+      `
+      MATCH (s:Skill {name:$name})-[:LEARN_FROM]->(r:LearningResource)
+      RETURN r
+      `,
+      { name }
+    );
+
+    const resources = resourceResult.records.map((r) => r.get("r").properties);
+
+    // Roles
+    const roleResult = await session.run(
+      `
+      MATCH (s:Skill {name:$name})-[:REQUIRED_FOR]->(r:Role)
+      RETURN r
+      `,
+      { name }
+    );
+
+    const roles = roleResult.records.map((r) => r.get("r").properties);
+
+    // Companies (multi-hop)
+    const companyResult = await session.run(
+      `
+      MATCH (s:Skill {name:$name})
+            -[:REQUIRED_FOR]->
+            (:Role)
+            -[:HIRED_BY]->
+            (c:Company)
+      RETURN DISTINCT c
+      `,
+      { name }
+    );
+
+    const companies = companyResult.records.map((r) => r.get("c").properties);
 
     return {
-      skill: row.get("skill")?.properties,
-
-      prerequisites: row
-        .get("prerequisites")
-        .filter(Boolean)
-        .map((n) => n.properties),
-
-      nextSkills: row
-        .get("nextSkills")
-        .filter(Boolean)
-        .map((n) => n.properties),
-
-      projects: row
-        .get("projects")
-        .filter(Boolean)
-        .map((n) => n.properties),
-
-      resources: row
-        .get("resources")
-        .filter(Boolean)
-        .map((n) => n.properties),
+      skill,
+      prerequisites,
+      nextSkills,
+      projects,
+      resources,
+      roles,
+      companies,
     };
-  } catch (error) {
-    console.error(error);
-    throw error;
   } finally {
     await session.close();
   }

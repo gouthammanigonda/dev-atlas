@@ -13,7 +13,7 @@ router.get("/skills", getSkills);
 
 router.get("/skills/search", search);
 
-router.get("/skills/:name", getSkill);
+// router.get("/skills/:name", getSkill);
 
 router.get("/graph/:name", graph);
 

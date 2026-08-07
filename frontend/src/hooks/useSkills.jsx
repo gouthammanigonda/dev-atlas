@@ -27,16 +27,16 @@ export const useSearchSkills = (query) => {
 };
 
 // Get Skill Details
-export const useSkill = (skillName) => {
-  return useQuery({
-    queryKey: ["skill", skillName],
-    queryFn: async () => {
-      const { data } = await client.get(`/skills/${skillName}`);
-      return data;
-    },
-    enabled: !!skillName,
-  });
-};
+// export const useSkill = (skillName) => {
+//   return useQuery({
+//     queryKey: ["skill", skillName],
+//     queryFn: async () => {
+//       const { data } = await client.get(`/skills/${skillName}`);
+//       return data;
+//     },
+//     enabled: !!skillName,
+//   });
+// };
 
 // Get Skill Graph
 export const useSkillGraph = (skillName) => {

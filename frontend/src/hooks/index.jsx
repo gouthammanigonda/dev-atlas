@@ -1,7 +1,7 @@
 export {
   useSkills,
   useSearchSkills,
-  useSkill,
+  // useSkill,
   useSkillGraph,
 } from "./useSkills";
 export { default as useDebounce } from "./useDebounce";

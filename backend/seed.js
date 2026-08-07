@@ -7,6 +7,7 @@ import {
   projects,
   learningResources,
   relationships,
+  relationshipMap
 } from "./data.js";
 
 /**
@@ -62,63 +63,28 @@ async function createRelationships(session) {
   console.log("🔗 Creating Relationships...");
 
   for (const relation of relationships) {
-    let query = "";
+    const config = relationshipMap[relation.type];
 
-    switch (relation.type) {
-      case "LEADS_TO":
-        query = `
-            MATCH (a:Skill {name:$from})
-            MATCH (b:Skill {name:$to})
-            CREATE (a)-[:LEADS_TO]->(b)
-        `;
-        break;
-
-      case "REQUIRES":
-        query = `
-            MATCH (a:Skill {name:$from})
-            MATCH (b:Skill {name:$to})
-            CREATE (a)-[:REQUIRES]->(b)
-        `;
-        break;
-
-      case "USED_IN":
-        query = `
-            MATCH (a:Skill {name:$from})
-            MATCH (b:Project {title:$to})
-            CREATE (a)-[:USED_IN]->(b)
-        `;
-        break;
-
-      case "USED_BY":
-        query = `
-            MATCH (a:Project {title:$from})
-            MATCH (b:Company {name:$to})
-            CREATE (a)-[:USED_BY]->(b)
-        `;
-        break;
-
-      case "LEARN_FROM":
-        query = `
-            MATCH (a:Skill {name:$from})
-            MATCH (b:LearningResource {title:$to})
-            CREATE (a)-[:LEARN_FROM]->(b)
-        `;
-        break;
-
-      case "ROLE_REQUIRES":
-        query = `
-            MATCH (a:Role {name:$from})
-            MATCH (b:Skill {name:$to})
-            CREATE (a)-[:REQUIRES]->(b)
-        `;
-        break;
-
-      default:
-        console.warn(`⚠ Unknown relationship type: ${relation.type}`);
-        continue;
+    if (!config) {
+      console.warn(`⚠ Unknown relationship type: ${relation.type}`);
+      continue;
     }
 
-    await executeQuery(session, query, relation);
+    try {
+      await session.run(
+        `
+      MATCH (a:${config.fromLabel} {${config.fromKey}: $from})
+      MATCH (b:${config.toLabel} {${config.toKey}: $to})
+      CREATE (a)-[:${relation.type}]->(b)
+      `,
+        relation
+      );
+    } catch (err) {
+      console.error(
+        `❌ Failed creating ${relation.type} (${relation.from} -> ${relation.to})`
+      );
+      console.error(err);
+    }
   }
 
   console.log("✅ Relationships Created\n");

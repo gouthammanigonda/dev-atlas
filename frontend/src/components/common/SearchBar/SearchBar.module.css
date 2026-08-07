@@ -1,0 +1,21 @@
+.autoComplete {
+  width: 100%;
+  max-width: 700px;
+}
+
+.suggestion {
+  display: grid;
+  gap: 4px;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--graph-text-muted);
+  font-size: 12px;
+}
+
+.metadata :global(.ant-tag) {
+  margin-inline-end: 0;
+}

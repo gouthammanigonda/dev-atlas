@@ -1,20 +1,27 @@
-import { Space, Tag, Typography } from "antd";
+import { useEffect, useRef } from "react";
+import { Space, Typography } from "antd";
 
 import { SearchBar } from "./";
 
 import styles from "./Header.module.css";
 
-const popularSkills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Docker",
-];
+const Header = ({ onSearchChange, onSkillSelect, searchValue }) => {
+  const searchInputRef = useRef(null);
 
-const Header = ({ onSkillSelect = () => {} }) => {
+  useEffect(() => {
+    const focusSearch = (event) => {
+      const isTyping = ["INPUT", "TEXTAREA"].includes(event.target.tagName);
+
+      if (event.key === "/" && !isTyping) {
+        event.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", focusSearch);
+    return () => window.removeEventListener("keydown", focusSearch);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Space
@@ -34,19 +41,16 @@ const Header = ({ onSkillSelect = () => {} }) => {
           </Typography.Text>
         </Space>
 
-        <SearchBar onSkillSelect={onSkillSelect} />
+        <SearchBar
+          ref={searchInputRef}
+          value={searchValue}
+          onChange={onSearchChange}
+          onSkillSelect={onSkillSelect}
+        />
 
-        <Space wrap size={[8, 8]} justify="center">
-          {popularSkills.map((skill) => (
-            <Tag
-              key={skill}
-              className={styles.tag}
-              onClick={() => onSkillSelect(skill)}
-            >
-              {skill}
-            </Tag>
-          ))}
-        </Space>
+        <Typography.Text type="secondary" className={styles.shortcut}>
+          Press / to focus search
+        </Typography.Text>
       </Space>
     </div>
   );

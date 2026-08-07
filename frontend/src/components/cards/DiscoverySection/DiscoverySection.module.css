@@ -1,12 +1,55 @@
 .section {
+  padding: var(--app-space-lg);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+  backdrop-filter: blur(14px);
   text-align: left;
 }
 
+.heading {
+  margin-bottom: 14px;
+}
+
 .title {
-  margin-bottom: 14px !important;
+  margin: 0 !important;
   font-size: 18px !important;
 }
 
+.icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: var(--graph-radius-sm);
+  background: var(--graph-primary-surface);
+  color: var(--app-focus);
+}
+
 .chip {
-  border-radius: 999px;
+  border-radius: var(--app-radius-pill);
+  transition: transform var(--app-motion-fast) var(--app-motion-ease), border-color var(--app-motion-fast) var(--app-motion-ease);
+}
+
+.chip:hover {
+  border-color: var(--app-focus);
+  transform: translateY(-1px);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--app-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--app-space-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
 }

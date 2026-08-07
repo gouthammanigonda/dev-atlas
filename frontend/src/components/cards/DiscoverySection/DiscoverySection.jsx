@@ -2,14 +2,17 @@ import { Button, Flex, Typography } from "antd";
 
 import styles from "./DiscoverySection.module.css";
 
-const DiscoverySection = ({ items, onItemClick, title }) => {
+const DiscoverySection = ({ icon, items, onItemClick, title }) => {
   const sectionId = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   return (
   <section className={styles.section} aria-labelledby={sectionId}>
-    <Typography.Title level={2} id={sectionId} className={styles.title}>
-      {title}
-    </Typography.Title>
+    <Flex align="center" gap="small" className={styles.heading}>
+      {icon && <span className={styles.icon}>{icon}</span>}
+      <Typography.Title level={2} id={sectionId} className={styles.title}>
+        {title}
+      </Typography.Title>
+    </Flex>
     <Flex wrap gap="small">
       {items.map((item) => {
         const { label, value = label } =

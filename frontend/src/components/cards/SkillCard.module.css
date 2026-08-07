@@ -1,7 +1,17 @@
 .card {
   margin-bottom: 24px;
-  border-radius: var(--graph-radius);
-  animation: fadeIn 360ms var(--graph-motion-ease) both;
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+  backdrop-filter: blur(14px);
+  animation: fadeIn var(--app-motion-medium) var(--app-motion-ease) both;
+  transition: transform var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
+}
+
+.card:hover {
+  box-shadow: var(--app-shadow-hover);
+  transform: translateY(-2px);
 }
 
 .title {
@@ -18,6 +28,7 @@
 
 .metadata :global(.ant-tag) {
   margin-inline-end: 0;
+  border-radius: var(--app-radius-pill);
 }
 
 @keyframes fadeIn {
@@ -29,5 +40,12 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+    transition: none;
   }
 }

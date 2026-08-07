@@ -1,6 +1,14 @@
 .autoComplete {
   width: 100%;
-  max-width: 700px;
+  max-width: none;
+}
+
+.dropdown {
+  overflow: hidden;
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--graph-radius-sm);
+  background: var(--app-surface-raised);
+  box-shadow: var(--app-shadow-hover);
 }
 
 .suggestion {
@@ -18,4 +26,12 @@
 
 .metadata :global(.ant-tag) {
   margin-inline-end: 0;
+}
+
+.autoComplete :global(.ant-input-affix-wrapper) {
+  border-radius: var(--graph-radius-sm);
+}
+
+.autoComplete :global(.ant-input-affix-wrapper:focus-within) {
+  box-shadow: 0 0 0 3px var(--app-hero-glow);
 }

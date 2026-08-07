@@ -5,6 +5,28 @@
 }
 
 :root {
+  --app-page-background: #0f1117;
+  --app-surface: #171a21;
+  --app-surface-raised: #1d212b;
+  --app-glass-surface: rgba(29, 33, 43, 0.78);
+  --app-glass-border: rgba(166, 173, 184, 0.14);
+  --app-text: #f5f5f5;
+  --app-text-secondary: #a6adb8;
+  --app-focus: #5b8cff;
+  --app-hero-glow: rgba(91, 140, 255, 0.16);
+  --app-radius-card: 16px;
+  --app-radius-pill: 999px;
+  --app-space-xs: 8px;
+  --app-space-sm: 12px;
+  --app-space-md: 16px;
+  --app-space-lg: 24px;
+  --app-space-xl: 32px;
+  --app-shadow-card: 0 12px 32px rgba(0, 0, 0, 0.22);
+  --app-shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.3);
+  --app-motion-fast: 180ms;
+  --app-motion-medium: 220ms;
+  --app-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
   --graph-canvas: #0f1117;
   --graph-surface: #171a21;
   --graph-node-surface: #1d212b;
@@ -32,6 +54,7 @@
   --graph-space-lg: 24px;
   --graph-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
   --graph-node-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --graph-motion-ease: var(--app-motion-ease);
 }
 
 html,
@@ -43,5 +66,5 @@ body,
 
 body {
   font-family: "Inter", sans-serif;
-  background: #0f1117;
+  background: var(--app-page-background);
 }

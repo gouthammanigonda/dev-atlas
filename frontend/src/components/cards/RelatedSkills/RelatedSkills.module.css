@@ -1,5 +1,5 @@
 .section {
-  margin-top: 32px;
+  margin-top: var(--app-space-xl);
 }
 
 .title {
@@ -8,6 +8,17 @@
 
 .card {
   height: 100%;
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+  transition: transform var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
+}
+
+.card:hover,
+.card:focus-visible {
+  box-shadow: var(--app-shadow-hover);
+  transform: translateY(-2px);
 }
 
 .description {
@@ -16,5 +27,5 @@
 }
 
 .empty {
-  padding: 20px 0;
+  padding: var(--app-space-lg) 0;
 }

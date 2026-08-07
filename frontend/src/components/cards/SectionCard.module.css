@@ -1,13 +1,21 @@
 .card {
   height: 100%;
   overflow: hidden;
-  border-radius: var(--graph-radius);
-  transition: transform 180ms var(--graph-motion-ease), box-shadow 180ms var(--graph-motion-ease);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+  backdrop-filter: blur(14px);
+  transition: transform var(--app-motion-fast) var(--app-motion-ease), box-shadow var(--app-motion-fast) var(--app-motion-ease);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--graph-shadow);
+  box-shadow: var(--app-shadow-hover);
+}
+
+.card:focus-within {
+  border-color: var(--app-focus);
 }
 
 .item {
@@ -18,12 +26,20 @@
   width: 100%;
 }
 
+.header {
+  color: var(--app-text);
+}
+
+.count {
+  margin-inline-start: auto;
+}
+
 .description {
   font-size: 13px;
 }
 
 .empty {
-  padding: 24px 0;
+  padding: var(--app-space-xl) 0;
 }
 
 .externalLink {

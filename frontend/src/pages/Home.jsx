@@ -1,5 +1,11 @@
 import { useCallback, useState } from "react";
 import { Empty } from "antd";
+import {
+  FireOutlined,
+  RocketOutlined,
+  StarOutlined,
+  ThunderboltOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 import { MainLayout } from "../layouts";
@@ -9,11 +15,24 @@ import { useRecentSearches } from "../hooks";
 import styles from "./Home.module.css";
 
 const discoverySections = [
-  { title: "🔥 Trending Skills", items: ["React", "TypeScript", "Docker", "Python"] },
-  { title: "⭐ Popular Skills", items: ["JavaScript", "Node.js", "Next.js", "SQL"] },
-  { title: "🆕 Recently Added", items: ["Git", "AWS", "GraphQL", "Kubernetes"] },
   {
-    title: "🚀 Career Paths",
+    title: "Trending Skills",
+    icon: <FireOutlined />,
+    items: ["React", "TypeScript", "Docker", "Python"],
+  },
+  {
+    title: "Popular Skills",
+    icon: <StarOutlined />,
+    items: ["JavaScript", "Node.js", "Next.js", "SQL"],
+  },
+  {
+    title: "Recently Added",
+    icon: <ThunderboltOutlined />,
+    items: ["Git", "AWS", "GraphQL", "Kubernetes"],
+  },
+  {
+    title: "Career Paths",
+    icon: <RocketOutlined />,
     items: [
       { label: "Frontend", value: "React" },
       { label: "Backend", value: "Node.js" },

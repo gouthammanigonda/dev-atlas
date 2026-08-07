@@ -1,0 +1,25 @@
+.section {
+  margin-top: var(--app-space-xl);
+  padding: var(--app-space-lg);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+}
+
+.title {
+  display: flex;
+  gap: var(--app-space-xs);
+  margin-bottom: var(--app-space-lg) !important;
+}
+
+.current {
+  padding: 2px var(--app-space-sm);
+  border-radius: var(--graph-radius-sm);
+  background: var(--graph-primary-surface);
+}
+
+.description {
+  display: block;
+  margin-top: 2px;
+}

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-md);
+  padding: var(--app-space-md);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+}
+
+.label {
+  color: var(--app-text);
+}
+
+.controls {
+  justify-content: flex-end;
+}
+
+.select {
+  min-width: 150px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controls {
+    justify-content: stretch;
+  }
+
+  .select {
+    flex: 1;
+    min-width: 0;
+  }
+}

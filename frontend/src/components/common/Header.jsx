@@ -6,7 +6,7 @@ import { SearchBar } from "./";
 
 import styles from "./Header.module.css";
 
-const Header = ({ onSearchChange, onSkillSelect, searchValue }) => {
+const Header = ({ filters, onSearchChange, onSkillSelect, searchValue }) => {
   const searchInputRef = useRef(null);
 
   useEffect(() => {
@@ -49,6 +49,7 @@ const Header = ({ onSearchChange, onSkillSelect, searchValue }) => {
           <SearchBar
             ref={searchInputRef}
             value={searchValue}
+            filters={filters}
             onChange={onSearchChange}
             onSkillSelect={onSkillSelect}
           />

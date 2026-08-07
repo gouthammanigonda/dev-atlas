@@ -1,0 +1,23 @@
+.section {
+  margin-top: var(--app-space-xl);
+  padding: var(--app-space-lg);
+  border: 1px solid var(--app-glass-border);
+  border-radius: var(--app-radius-card);
+  background: var(--app-glass-surface);
+  box-shadow: var(--app-shadow-card);
+}
+
+.title {
+  display: flex;
+  gap: var(--app-space-xs);
+  margin-bottom: var(--app-space-lg) !important;
+}
+
+.description {
+  display: block;
+  margin-top: 2px;
+}
+
+.companyLink {
+  padding-inline: 0;
+}

@@ -36,6 +36,10 @@
   margin-top: 24px;
 }
 
+.advancedGrid {
+  margin-top: var(--app-space-lg);
+}
+
 .emptyState {
   padding: 96px 0;
 }

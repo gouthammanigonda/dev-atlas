@@ -3,6 +3,7 @@ import {
   ApartmentOutlined,
   BookOutlined,
   BuildOutlined,
+  ExportOutlined,
   LinkOutlined,
   ProjectOutlined,
   ReadOutlined,
@@ -10,6 +11,7 @@ import {
 } from "@ant-design/icons";
 
 import styles from "./SectionCard.module.css";
+import CompanyLogo from "./CompanyLogo";
 
 const sectionIcons = {
   Prerequisites: <ApartmentOutlined />,
@@ -31,20 +33,25 @@ const SectionCard = ({ items = [], title, variant = "default" }) => {
     if (variant === "resource") {
       return (
         <Flex vertical gap={6}>
-          <Button
-            type="link"
-            icon={<LinkOutlined />}
-            href={item.url}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.externalLink}
-          >
-            {item.title || item.name}
-          </Button>
-          {item.provider && (
-            <Typography.Text type="secondary" className={styles.description}>
-              Provided by {item.provider}
-            </Typography.Text>
+          <Flex align="center" gap="small" wrap>
+            <Typography.Text strong>{item.title || item.name}</Typography.Text>
+            {item.type && <Tag>{item.type}</Tag>}
+          </Flex>
+          <Typography.Text type="secondary" className={styles.description}>
+            {item.provider ? `Provided by ${item.provider}` : "Provider not specified"}
+          </Typography.Text>
+          {item.url && (
+            <Button
+              type="link"
+              icon={<ExportOutlined />}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.externalLink}
+              aria-label={`Open ${item.title || item.name} in a new tab`}
+            >
+              Open Resource
+            </Button>
           )}
         </Flex>
       );
@@ -53,7 +60,23 @@ const SectionCard = ({ items = [], title, variant = "default" }) => {
     if (variant === "company") {
       return (
         <Flex align="center" justify="space-between" gap="small" wrap>
-          <Typography.Text strong>{item.name}</Typography.Text>
+          <Flex align="center" gap="small">
+            <CompanyLogo company={item} />
+            {item.website ? (
+              <Button
+                type="link"
+                href={item.website}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${item.name} website in a new tab`}
+                className={styles.companyName}
+              >
+                {item.name}
+              </Button>
+            ) : (
+              <Typography.Text strong>{item.name}</Typography.Text>
+            )}
+          </Flex>
           {item.website && (
             <Button
               size="small"
@@ -61,6 +84,7 @@ const SectionCard = ({ items = [], title, variant = "default" }) => {
               href={item.website}
               target="_blank"
               rel="noreferrer"
+              aria-label={`Open ${item.name} website in a new tab`}
             >
               Visit website
             </Button>

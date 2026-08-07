@@ -28,6 +28,13 @@
   margin-inline-end: 0;
 }
 
+.match {
+  padding: 0;
+  border-radius: 2px;
+  background: var(--graph-primary-surface);
+  color: inherit;
+}
+
 .autoComplete :global(.ant-input-affix-wrapper) {
   border-radius: var(--graph-radius-sm);
 }

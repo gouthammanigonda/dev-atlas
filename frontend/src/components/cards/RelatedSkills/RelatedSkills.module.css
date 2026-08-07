@@ -1,0 +1,20 @@
+.section {
+  margin-top: 32px;
+}
+
+.title {
+  margin-bottom: 16px !important;
+}
+
+.card {
+  height: 100%;
+}
+
+.description {
+  display: block;
+  margin-top: 6px;
+}
+
+.empty {
+  padding: 20px 0;
+}

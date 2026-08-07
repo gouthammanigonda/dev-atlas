@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Breadcrumb, Button, Col, Empty, Result, Row } from "antd";
 import { HomeOutlined, ReloadOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -6,6 +7,8 @@ import { Link } from "react-router-dom";
 import { MainLayout } from "../layouts";
 import {
   GraphCanvas,
+  NodeDetailsPanel,
+  RelatedSkills,
   SectionCard,
   SkillCard,
   SkillDetailsSkeleton,
@@ -15,10 +18,37 @@ import { useSkillGraph } from "../hooks";
 import styles from "./Skill.module.css";
 
 export default function Skill() {
+  const navigate = useNavigate();
   const { name } = useParams();
   const { data: graph, isError, isLoading, refetch } = useSkillGraph(name);
+  const [displayedGraph, setDisplayedGraph] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedRole, setSelectedRole] = useState(null);
 
-  if (isLoading) {
+  useEffect(() => {
+    if (!graph) return undefined;
+
+    const frameId = window.requestAnimationFrame(() => setDisplayedGraph(graph));
+    return () => window.cancelAnimationFrame(frameId);
+  }, [graph]);
+
+  const handleSkillSelect = useCallback(
+    (skillName) => navigate(`/skill/${encodeURIComponent(skillName)}`),
+    [navigate],
+  );
+
+  const handleBack = useCallback(() => {
+    if (window.history.state?.idx > 0) {
+      navigate(-1);
+      return;
+    }
+
+    navigate("/");
+  }, [navigate]);
+
+  const graphToDisplay = graph || displayedGraph;
+
+  if (isLoading && !graphToDisplay) {
     return (
       <MainLayout>
         <SkillDetailsSkeleton />
@@ -46,7 +76,7 @@ export default function Skill() {
     );
   }
 
-  if (!graph?.skill) {
+  if (!graphToDisplay?.skill) {
     return (
       <MainLayout>
         <Empty
@@ -69,41 +99,62 @@ export default function Skill() {
           className={styles.breadcrumb}
           items={[
             { title: <Link to="/"><HomeOutlined /> Discovery</Link> },
-            { title: graph.skill.name },
+            { title: graphToDisplay.skill.name },
           ]}
         />
 
-          <SkillCard skill={graph.skill} />
+        <Button className={styles.backButton} onClick={handleBack}>
+          Back
+        </Button>
+
+          <SkillCard skill={graphToDisplay.skill} />
 
           <div className={styles.graphContainer}>
-            <GraphCanvas graph={graph} />
+            <GraphCanvas
+              graph={graphToDisplay}
+              onSkillSelect={handleSkillSelect}
+              onProjectSelect={setSelectedProject}
+              onRoleSelect={setSelectedRole}
+            />
           </div>
+
+          <RelatedSkills
+            prerequisites={graphToDisplay.prerequisites}
+            nextSkills={graphToDisplay.nextSkills}
+            onSkillSelect={handleSkillSelect}
+          />
 
           <Row gutter={[16, 16]} className={styles.sectionGrid}>
             <Col xs={24} md={12}>
-              <SectionCard title="Prerequisites" items={graph.prerequisites} />
+              <SectionCard title="Prerequisites" items={graphToDisplay.prerequisites} />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Next Skills" items={graph.nextSkills} />
+              <SectionCard title="Next Skills" items={graphToDisplay.nextSkills} />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Projects" items={graph.projects} variant="project" />
+              <SectionCard title="Projects" items={graphToDisplay.projects} variant="project" />
             </Col>
             <Col xs={24} md={12}>
               <SectionCard
                 title="Learning Resources"
-                items={graph.resources}
+                items={graphToDisplay.resources}
                 variant="resource"
               />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Roles" items={graph.roles} />
+              <SectionCard title="Roles" items={graphToDisplay.roles} />
             </Col>
             <Col xs={24} md={12}>
-              <SectionCard title="Companies" items={graph.companies} variant="company" />
+              <SectionCard title="Companies" items={graphToDisplay.companies} variant="company" />
             </Col>
           </Row>
       </div>
+      <NodeDetailsPanel
+        project={selectedProject}
+        role={selectedRole}
+        onCloseProject={() => setSelectedProject(null)}
+        onCloseRole={() => setSelectedRole(null)}
+      />
     </MainLayout>
   );
 }

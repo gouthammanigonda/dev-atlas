@@ -182,13 +182,17 @@ Every push to the `main` branch automatically triggers the GitHub Actions CI pip
 
 You can discover a technology in multiple ways. Search using the search bar by typing a skill name (React, Node.js, Docker, etc.). Matching skills appear instantly in the dropdown. Simply click a search result to open the Skill Details page.
 
-[Watch search a skill](https://github.com/gouthammanigonda/dev-atlas/releases/download/vid/searchbar.mp4)
+<video src="https://github.com/user-attachments/assets/3931a269-50f7-478a-bb28-2896f35c7292" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 2 — Browse Using Tags
 
 You don't need to type to start exploring. You can simply click one of the quick tags on the home page (like React, TypeScript, Docker, SQL, or Python). After clicking a tag, the search box is populated automatically, and you simply press Search (or Enter) to navigate to that skill.
 
-[Watch Search by tag](https://github.com/gouthammanigonda/dev-atlas/releases/download/vid/search-by-tag.mp4)
+<video src="https://github.com/user-attachments/assets/3c03ce1c-5403-4279-8829-73daceb95594" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 3 — Filter Skills
 
@@ -197,7 +201,9 @@ Filters work together with search to narrow down results.
 - **Category Filter:** Filter by domains such as Frontend, Backend, DevOps, or Database.
 - **Difficulty Filter:** Filter by skill levels such as Beginner, Intermediate, or Advanced.
 
-[Watch Skill filter](https://github.com/gouthammanigonda/dev-atlas/releases/download/vid/search-by-filter.mp4)
+<video src="https://github.com/user-attachments/assets/8a168b74-2191-4e7d-bf25-c366b642b65c" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 4 — Explore the Skill Page
 
@@ -216,7 +222,9 @@ You can interact with the graph intuitively:
 
 Every edge represents a relationship between skills (e.g., _Requires_, _Leads To_, _Used In_, _Learn From_).
 
-[Watch the Graphs Features Demo](https://github.com/gouthammanigonda/dev-atlas/releases/download/vid/graphs-features.mp4)
+<video src="https://github.com/user-attachments/assets/68200965-5308-440f-91da-7c374bac4293" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ### Step 6 — Learn Through Related Sections
 
@@ -227,7 +235,9 @@ Below the graph, you will find additional structured information related to the 
 - Projects
 - Learning Resources
 
-[Watch Skill related srction](https://github.com/gouthammanigonda/dev-atlas/releases/download/vid/skill-requirment-details.mp4)
+<video src="https://github.com/user-attachments/assets/27653247-12cc-4a0e-8b2c-7b6f92d61a00" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ---
 

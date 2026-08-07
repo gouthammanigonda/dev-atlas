@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import client from "../api/client";
 
-// Get All Skills
+// ── Get All Skills ────────────────────────────────────────────────────────────
 export const useSkills = () => {
   return useQuery({
     queryKey: ["skills"],
@@ -12,7 +12,7 @@ export const useSkills = () => {
   });
 };
 
-// Search Skills
+// ── Search Skills ─────────────────────────────────────────────────────────────
 export const useSearchSkills = (query) => {
   return useQuery({
     queryKey: ["search", query],
@@ -20,26 +20,13 @@ export const useSearchSkills = (query) => {
       const { data } = await client.get("/skills/search", {
         params: { q: query },
       });
-
       return data;
     },
     enabled: query.trim().length > 0,
   });
 };
 
-// Get Skill Details
-// export const useSkill = (skillName) => {
-//   return useQuery({
-//     queryKey: ["skill", skillName],
-//     queryFn: async () => {
-//       const { data } = await client.get(`/skills/${skillName}`);
-//       return data;
-//     },
-//     enabled: !!skillName,
-//   });
-// };
-
-// Get Skill Graph
+// ── Get Skill Graph ───────────────────────────────────────────────────────────
 export const useSkillGraph = (skillName) => {
   return useQuery({
     queryKey: ["graph", skillName],

@@ -8,10 +8,30 @@
   background: var(--graph-node-surface);
   box-shadow: var(--graph-node-shadow);
   color: var(--graph-text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform 180ms var(--graph-motion-ease), border-color 180ms var(--graph-motion-ease), box-shadow 180ms var(--graph-motion-ease), opacity 180ms var(--graph-motion-ease);
 }
 
 .node:hover {
   border-color: var(--graph-node-hover);
+  transform: scale(1.03);
+  box-shadow: var(--graph-shadow);
+}
+
+.node:focus-visible {
+  outline: 2px solid var(--graph-primary);
+  outline-offset: 3px;
+}
+
+.dimmed {
+  opacity: 0.38;
+}
+
+.highlighted {
+  border-color: var(--graph-primary);
+  box-shadow: var(--graph-shadow);
 }
 
 .selected {
@@ -60,4 +80,10 @@
   line-height: 1.3;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node {
+    transition: none;
+  }
 }

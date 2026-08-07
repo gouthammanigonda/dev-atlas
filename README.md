@@ -33,11 +33,12 @@
 
 **DevAtlas** visualizes developer knowledge as an interactive graph instead of traditional cards or dashboards.
 
-**The Problem:** Traditional learning roadmaps and skill directories are linear, overwhelming, and lack context. They tell you *what* to learn, but rarely *how* skills connect to real-world applications, roles, and hiring companies.
+**The Problem:** Traditional learning roadmaps and skill directories are linear, overwhelming, and lack context. They tell you _what_ to learn, but rarely _how_ skills connect to real-world applications, roles, and hiring companies.
 
 **The Solution:** Visual learning. By leveraging an interactive knowledge graph, DevAtlas allows developers to see the big picture. You can instantly understand prerequisites, discover related technologies, and navigate a web of knowledge intuitively.
 
 **Who is it for?**
+
 - **Self-taught developers** looking for a clear path forward.
 - **Experienced engineers** exploring new tech stacks.
 - **Educators and mentors** guiding students through complex ecosystems.
@@ -83,16 +84,16 @@
 
 ## 🛠️ Tech Stack
 
-| Layer     | Technology                        |
-|-----------|-----------------------------------|
-| **Frontend**  | React, TypeScript, Vite           |
-| **UI**        | Ant Design, CSS Variables         |
-| **Graph**     | React Flow (@xyflow/react)        |
-| **State/Data**| React Query, Zustand              |
-| **Routing**   | React Router                      |
-| **Backend**   | Node.js, Express                  |
-| **Database**  | Neo4j Aura (Graph Database)       |
-| **Hosting**   | Vercel (Frontend), Railway (Backend)|
+| Layer          | Technology                           |
+| -------------- | ------------------------------------ |
+| **Frontend**   | React, TypeScript, Vite              |
+| **UI**         | Ant Design, CSS Variables            |
+| **Graph**      | React Flow (@xyflow/react)           |
+| **State/Data** | React Query, Zustand                 |
+| **Routing**    | React Router                         |
+| **Backend**    | Node.js, Express                     |
+| **Database**   | Neo4j Aura (Graph Database)          |
+| **Hosting**    | Vercel (Frontend), Railway (Backend) |
 
 ---
 
@@ -144,7 +145,8 @@ cd dev-atlas
 cd backend
 cp .env.example .env
 ```
-*Fill in your Neo4j credentials in the `.env` file.*
+
+_Fill in your Neo4j credentials in the `.env` file._
 
 ```bash
 npm install
@@ -183,7 +185,7 @@ npm run preview
 
 ## ☁️ Deployment
 
-DevAtlas is designed for automated deployments. 
+DevAtlas is designed for automated deployments.
 
 - **Frontend:** Hosted on [Vercel](https://vercel.com).
 - **Backend:** Hosted on [Railway](https://railway.app).
@@ -193,54 +195,78 @@ Every push to the `main` branch automatically triggers the GitHub Actions CI pip
 ### Environment Variables
 
 **Backend (`backend/.env`)**
+
 - `PORT` (e.g. `3001`)
 - `NODE_ENV` (e.g. `production`)
 - `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`
 - `FRONTEND_URL` (e.g. `https://dev-atlas-theta.vercel.app`)
 
 **Frontend (Vercel Variables)**
+
 - `VITE_API_BASE_URL` (e.g. `https://your-backend.up.railway.app/api`)
 
 ---
 
 ## 🎯 How to Use
 
-1. **Open the website** and you'll be greeted by the DevAtlas home page.
-2. **Search for a technology** (e.g., React, Node.js) using the Smart Skill Search in the top navigation.
-3. **Select a result** from the auto-complete dropdown.
-4. **Explore the knowledge graph** on the left panel to see how the skill connects to other domains.
-5. **View prerequisites** to know what you should learn before diving in.
-6. **View next skills** to plan your future learning roadmap.
-7. **Explore career opportunities** to see what roles this skill unlocks.
-8. **Open learning resources** to access curated tutorials, documentation, and courses.
-9. **Visit company websites** to explore real employers looking for these skills.
+### Step 1 — Search a Skill
 
----
+You can discover a technology in multiple ways. Search using the search bar by typing a skill name (React, Node.js, Docker, etc.). Matching skills appear instantly in the dropdown. Simply click a search result to open the Skill Details page.
 
-## 🔮 Future Improvements
+_(Search GIF placeholder)_
 
-- [ ] Backend integration
-- [ ] Authentication
-- [ ] User Profiles
-- [ ] Bookmark Skills
-- [ ] Learning Progress Tracking
-- [ ] AI Recommendations
-- [ ] Community Contributions
-- [ ] More Technologies
-- [ ] Search Improvements
-- [ ] Filters
+### Step 2 — Browse Using Tags
 
----
+You don't need to type to start exploring. You can simply click one of the quick tags on the home page (like React, TypeScript, Docker, SQL, or Python). After clicking a tag, the search box is populated automatically, and you simply press Search (or Enter) to navigate to that skill.
 
-## 🤝 Contributing
+_(Tags GIF placeholder)_
 
-We welcome contributions! To contribute to DevAtlas:
+### Step 3 — Filter Skills
 
-1. **Fork** the repository.
-2. **Create a branch**: `git checkout -b feature/your-feature-name`
-3. **Commit your changes**: `git commit -m 'Add some feature'`
-4. **Push to the branch**: `git push origin feature/your-feature-name`
-5. **Open a Pull Request** and describe your changes clearly.
+Filters work together with search to narrow down results.
+
+- **Category Filter:** Filter by domains such as Frontend, Backend, DevOps, or Database.
+- **Difficulty Filter:** Filter by skill levels such as Beginner, Intermediate, or Advanced.
+
+_(Filters GIF placeholder)_
+
+### Step 4 — Explore the Skill Page
+
+After opening a skill, you'll be greeted with a comprehensive dashboard. Here you can view the skill overview, its difficulty level, the estimated learning time, its category, and various quick actions.
+
+_(Skill Overview GIF placeholder)_
+
+### Step 5 — Explore the Interactive Knowledge Graph
+
+The knowledge graph is a visual representation of how everything connects. Every node represents something related to the selected skill (e.g., prerequisite technologies, next technologies, projects, learning resources, companies, job roles).
+
+You can interact with the graph intuitively:
+
+- Drag nodes to organize them.
+- Zoom in and out to see the big picture.
+- Pan across the canvas.
+- Click nodes to inspect relationships or navigate to them.
+
+Every edge represents a relationship between skills (e.g., _Requires_, _Leads To_, _Used In_, _Learn From_).
+
+_(Graph GIF placeholder)_
+
+### Step 6 — Learn Through Related Sections
+
+Below the graph, you will find additional structured information related to the selected technology. These sections include:
+
+- Learning Roadmap (Prerequisites & Next Skills)
+- Career Opportunities (Roles & Companies)
+- Projects
+- Learning Resources
+
+_(Details Section GIF placeholder)_
+
+### Step 7 — Switch Themes
+
+The application supports multiple handcrafted themes. The theme selector is available in the header and instantly switches the entire UI. Your theme preference is remembered across sessions.
+
+_(Theme GIF placeholder)_
 
 ---
 
@@ -252,6 +278,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🧑‍💻 Author
 
-- **Name:** [Your Name]
-- **GitHub:** [@your-username](https://github.com/your-username)
-- **LinkedIn:** [Your Name](https://linkedin.com/in/your-profile)
+- **Name:** M.Goutham
+- **GitHub:** [@gouthammanigonda](https://github.com/gouthammanigonda)
+- **LinkedIn:** [Goutham Manigonda](https://www.linkedin.com/in/goutham-manigonda-737224g/)

@@ -2,7 +2,7 @@
   overflow: hidden;
   border: 1px solid var(--app-glass-border);
   border-radius: var(--app-radius-card);
-  background: var(--app-glass-surface);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-card);
   backdrop-filter: blur(14px);
 }
@@ -20,12 +20,12 @@
 .header h2 {
   margin: 0;
   color: var(--graph-text);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .eyebrow,
 .hint {
-  color: var(--graph-text-muted);
+  color: var(--app-text-secondary);
   font-size: 12px;
 }
 

@@ -2,11 +2,21 @@
   display: grid;
   gap: var(--app-space-lg);
   width: 100%;
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
-  padding-bottom: 48px;
+  padding-bottom: var(--app-space-xxl);
 }
 
 .emptyState {
-  padding: var(--app-space-lg) 0;
+  padding: var(--app-space-xl) 0;
+}
+
+.emptyState :global(.ant-empty-image) {
+  opacity: 0.8;
+}
+
+.emptyState :global(.ant-empty-description) {
+  color: var(--app-text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
 }

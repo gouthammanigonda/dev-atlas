@@ -1,9 +1,9 @@
 .section {
-  margin-top: var(--app-space-xl);
+  margin-top: 0;
   padding: var(--app-space-lg);
   border: 1px solid var(--app-glass-border);
   border-radius: var(--app-radius-card);
-  background: var(--app-glass-surface);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-card);
 }
 
@@ -11,15 +11,27 @@
   display: flex;
   gap: var(--app-space-xs);
   margin-bottom: var(--app-space-lg) !important;
+  font-size: 22px !important;
 }
 
 .current {
-  padding: 2px var(--app-space-sm);
+  padding: var(--app-space-xs) var(--app-space-sm);
   border-radius: var(--graph-radius-sm);
   background: var(--graph-primary-surface);
+  border: 1px solid var(--app-active-border);
 }
 
 .description {
   display: block;
   margin-top: 2px;
+  color: var(--app-text-secondary);
+  line-height: 1.5;
+}
+
+.section :global(.ant-timeline-item-tail) {
+  border-inline-start-color: var(--app-glass-border);
+}
+
+.section :global(.ant-timeline-item) {
+  padding-bottom: var(--app-space-md);
 }

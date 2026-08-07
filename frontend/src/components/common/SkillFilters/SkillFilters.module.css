@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--app-space-md);
-  padding: var(--app-space-md);
+  padding: var(--app-space-sm) var(--app-space-md);
   border: 1px solid var(--app-glass-border);
   border-radius: var(--app-radius-card);
-  background: var(--app-glass-surface);
+  background: var(--app-surface);
   box-shadow: var(--app-shadow-card);
 }
 
@@ -20,6 +20,11 @@
 
 .select {
   min-width: 150px;
+}
+
+.select :global(.ant-select-selector) {
+  border-color: var(--app-glass-border) !important;
+  background: var(--app-surface-raised) !important;
 }
 
 @media (max-width: 640px) {
